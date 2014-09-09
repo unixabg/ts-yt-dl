@@ -12,7 +12,7 @@ if (isset($_POST['first_name'], $_POST['last_name'], $_POST['username'], $_POST[
 		$result = $db->query($query);
 		if ($result) {
 			session_start();
-				header('Location: ./index.php');
+			header('Location: ./index.php');
 			$_SESSION['username'] = $username;
 		}else {
 			echo "Error adding user.";

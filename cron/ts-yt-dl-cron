@@ -1,0 +1,111 @@
+#!/bin/sh
+
+## Copyright (C) 2014 Richard Nelson <unixabg@gmail.com>
+##
+## This program comes with ABSOLUTELY NO WARRANTY; for details see COPYING.
+## This is free software, and you are welcome to redistribute it
+## under certain conditions; see COPYING for details.
+
+_ENABLE_TIMESHIFT="true"
+_DEBUG="true"
+_TMPDIR="/srv/ts-yt-dl/tmp"
+_WWWDIR="/srv/ts-yt-dl/www"
+_SERVER="$(hostname -f)"
+_INSTANCES="1"
+_TEMPLATES="/usr/share/ts-yt-dl/templates"
+_TIMESHIFT=""
+_TIMESHIFT_PATH=""
+_DATE_BEGIN=""
+_DATE_END=""
+
+# Exit if disabled
+if [ "${_ENABLE_TIMESHIFT}" != "true" ]
+then
+	exit 0
+fi
+
+# Turn on debug if true
+if [ "${_DEBUG}" = "true" ]
+then
+	set -x
+fi
+
+# Locknum sets the lock enumeration for multiple instances of ts-yt-dl
+_LOCKNUM="$(expr 1 + $(expr $(date +%M) % ${_INSTANCES}))"
+
+# Checking lock file
+if [ -f /var/lock/ts-yt-dl-${_LOCKNUM}.lock ]
+then
+	echo "E: ts-yt-dl instance ${_LOCKNUM} already/still running."
+	exit 1
+fi
+
+# Creating lock trap
+trap "test -f /var/lock/ts-yt-dl-${_LOCKNUM}.lock && rm -f /var/lock/ts-yt-dl-${_LOCKNUM}.lock; exit 0" 0 1 2 3 9 15
+
+# Creating lock file
+touch /var/lock/ts-yt-dl-${_LOCKNUM}.lock
+
+# Ok from here spin through the ts-yt-dl files
+if ls "${_TEMPDIR}"/*.ts > /dev/null 2>&1
+then
+	_FILE=$(ls "${_TEMPDIR}"/*.ts | sort | head -1)
+	# Pull in variables from the time shift file.
+	. "${_FILE}"
+	# Get the basename of the file for folder work.
+	_TIMESHIFT=$(basename ${_FILE} .ts)
+	_TIMESHIFT_PATH="${_WWWDIR}"/"${_TIMESHIFT}"
+	# Drop out some time shift data for information if something goes wrong.
+	echo "`date +%b\ %d\ %H:%M:%S` ${_HOSTNAME} ts-yt-dl: begin time shift ${_TIMESHIFT})." >> /var/log/ts-yt-dl/ts-yt-dl.log
+
+	# Create time shift work folder.
+	mkdir -p "${_TIMESHIFT_PATH}"
+
+	# Move the time shift file.
+	mv "${_FILE}" "${_TIMESHIFT_PATH}"/
+	FIXME FIXME FIXME
+
+	_DATE_START="`date -R`"
+	echo "Begin ts-yt-dl: ${_DATE_START}" > "${_TIMESHIFT_PATH}"/log
+
+	# Initiate time shift command.
+	set +e
+	FIXME COMMAND FIXME  >> "${_TIMESHIFT_PATH}"/log 2>&1
+	_ERRORTIMESHIFT="${?}"
+
+	_DATE_END="`date -R`"
+	echo "End: ${_DATE_END}" >> "${_TIMESHIFT_PATH}"/log
+
+	# Creating mail and logging.
+	if [ "${_ERRORTIMESHIFT}" -eq "0" ]
+	then
+		_STATUS="maybe-successful"
+		echo "${_REMOTEADDR} - - `date +[%d/%b/%Y:%H:%m:%S\ %z]` \"${_TIMESHIFT}\" 200 - \"-\" \"\"">>/var/log/live/ts-yt-dl-status
+	else
+		_STATUS="maybe-failed"
+		echo "${_REMOTEADDR} - - `date +[%d/%b/%Y:%H:%m:%S\ %z]` \"${_TIMESHIFT}\" 404 - \"-\" \"\"">>/var/log/live/ts-yt-dl-status
+	fi
+
+	sed -e "s/TIMESHIFT/${_TIMESHIFT}/g" \
+	    -e "s/EMAIL/${_EMAIL}/" \
+	    -e "s/DATE_START/${_DATE_START}/" \
+	    -e "s/DATE_END/${_DATE_END}/" \
+	    -e "s/STATUS/${_STATUS}/" \
+	    -e "s#SERVER#${_SERVER}#" \
+	"${_TEMPLATES}"/mail.txt > "${_TIMESHIFT_PATH}"/mail
+
+cat >> "${_TIMESHIFT_PATH}"/mail << EOF
+
+---
+
+Here's some information we used for your time shift request:
+
+EOF
+
+	cat  "${_TIMESHIFT_PATH}"/"${_TIMESHIFT}".ts >> "${_TIMESHIFT_PATH}"/mail
+
+	# Sending mail
+	cat  "${_TIMESHIFT_PATH}"/mail | /usr/sbin/sendmail -t
+
+	echo "`date +%b\ %d\ %H:%M:%S` ${_SERVER} ts-yt-dl: end time shift attempt ( ${_TIMESHIFT}: ${_STATUS})." >> /var/log/ts-yt-dl/ts-yt-dl.log
+fi

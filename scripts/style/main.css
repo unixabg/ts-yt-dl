@@ -9,14 +9,14 @@ body {
 	margin: 0;
 }
 #banner {
-	margin-top: -15px;
-	width: 100%;
+	width: calc(100% - 10px);
 	background: #FFFFFF;
 	border-bottom: 1px solid rgb(232, 232, 232);
+	padding: 8px 5px;;
 }
 #banner h1 {
-	padding: 8px 5px;;
 	font-size: 22px;
+	display: inline;
 }
 #banner a {
 	float: right;
@@ -77,7 +77,7 @@ nav ul li a:hover {
 	color: red;
 }
 .url_box {
-	width: 550px;
+	width: 580px;
 	margin: 0 auto;
 }
 .url_input {
@@ -85,6 +85,7 @@ nav ul li a:hover {
 	padding: 12px 10px;
 	width: calc(100% - 150px);
 	font-size: 16px;
+	float: left;
 }
 .url_submit {
 	position: absolute;
@@ -103,4 +104,30 @@ nav ul li a:hover {
 }
 .thumbnail {
 	width: 200px;
+}
+.radio_input {
+	width: 460px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 60px;
+}
+.search {
+	display: inline;
+}
+.search_input {
+	width: 500px;
+	border: 1px solid #DBDBDB;
+	padding: 8px 10px;
+	font-size: 14px;
+}
+.search_submit {
+	position: absolute;
+	color: white;
+	background: rgb(77, 144, 254);
+	border: none;
+	text-shadow: 0px 1px rgba(0, 0, 0, 0.1);
+	padding: 8.25px;
+}
+.search_submit:hover {
+	cursor: pointer;
 }

@@ -1,7 +1,7 @@
 <?php
 if (isset($_POST['username'], $_POST['password'])) {
 	if (!empty($_POST['username']) && !empty($_POST['password'])) {
-		require_once("../../../../php_scripts/mysql_connect.php");
+		require_once("./mysql_connect.php");
 		$username = $_POST['username'];
 		$password = md5($_POST['password']);
 		$query = "SELECT * FROM users WHERE username = \"". $username . "\" AND password = \"". $password. "\"";

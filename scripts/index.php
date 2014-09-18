@@ -23,12 +23,21 @@ echo "<link rel=\"stylesheet\" href=\"./style/login.css\">";
 			echo "<h3 class=\"h3_title\"><a href=\"sign_up.php\">Sign up</a></h3>";
 			exit;
 		}
+		if ($_GET['error'] == "no_url") {
+			echo "<p class=\"error\">Invalid URL</p>";
+		}
 			echo "<div class=\"url_box\">
 			<form action=\"download.php\" method=\"POST\">
 				<input class=\"url_input\" type=\"text\" name=\"url\" placeholder=\"url\"/>
 				<input class=\"url_submit\" type=\"submit\" value=\"Download\">
-			</form>
-		</div>";
+			</div>
+			<p class=\"radio_input\">
+				Video quaitly: High<input lable=\"High\" type=\"radio\" name=\"parm\" value=\"--format=37\" checked>
+				Med<input type=\"radio\" name=\"parm\" value=\"--format=34\">
+				Low<input type=\"radio\" name=\"parm\" value=\"--format=5\">
+				&nbsp;&nbsp;Audio only: <input type=\"radio\" name=\"parm\" value=\"--extract-audio --audio-format mp3\">
+			</p>
+		</form>";
 	?>
 	</div>
 </body>

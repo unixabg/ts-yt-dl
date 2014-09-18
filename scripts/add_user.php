@@ -1,5 +1,5 @@
 <?php
-require_once('../../../../php_scripts/mysql_connect.php');
+require_once('./mysql_connect.php');
 if (isset($_POST['first_name'], $_POST['last_name'], $_POST['username'], $_POST['email'], $_POST['password'], $_POST['password_confirm']) && $_POST['password'] == $_POST['password_confirm']) {
 	if (!empty($_POST['first_name']) && !empty($_POST['last_name']) && !empty($_POST['username']) && !empty($_POST['email']) && !empty($_POST['password']) && !empty($_POST['password_confirm'])) {
 		$email = $_POST['email'];

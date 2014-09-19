@@ -17,7 +17,7 @@ if (!empty($url) && filter_var($url, FILTER_VALIDATE_URL)) {
 		echo "Database error. Please try agian.";
 	}
 	$timestamp = date('Ymdis');
-	file_put_contents("/srv/ts-yt-dl/tmp/$timestamp.ts", "__USERID=\"$userid\"\n__TSCALL=\"$parm $url\"\n__TIMESHIFT=\"$timpstamp\"\n__REMOTEADDR=\"$ip\"");
+	file_put_contents("/srv/ts-yt-dl/tmp/$timestamp.ts", "_USERID=\"$userid\"\n_TSCALL=\"$parm $url\"\n_REMOTEADDR=\"$ip\"");
 	echo "<body>
 	<div id=\"content\">
 		<img class=\"thumbnail\" src=\"$thumbnail\">

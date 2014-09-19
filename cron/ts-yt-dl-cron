@@ -8,7 +8,7 @@
 
 _ENABLE_TIMESHIFT="true"
 _DEBUG="true"
-_TMPDIR="/srv/ts-yt-dl/tmp"
+_TEMPDIR="/srv/ts-yt-dl/tmp"
 _WWWDIR="/srv/ts-yt-dl/www"
 _SERVER="$(hostname -f)"
 _INSTANCES="1"

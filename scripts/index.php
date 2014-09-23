@@ -32,9 +32,7 @@ echo "<link rel=\"stylesheet\" href=\"./style/login.css\">";
 				<input class=\"url_submit\" type=\"submit\" value=\"Download\">
 			</div>
 			<p class=\"radio_input\">
-				Video quaitly: High<input lable=\"High\" type=\"radio\" name=\"parm\" value=\"--format=37\" checked>
-				Med<input type=\"radio\" name=\"parm\" value=\"--format=34\">
-				Low<input type=\"radio\" name=\"parm\" value=\"--format=5\">
+				Video: <input lable=\"High\" type=\"radio\" name=\"parm\" value=\" \" checked>
 				&nbsp;&nbsp;Audio only: <input type=\"radio\" name=\"parm\" value=\"--extract-audio --audio-format mp3\">
 			</p>
 		</form>";

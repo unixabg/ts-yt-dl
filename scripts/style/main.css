@@ -31,7 +31,7 @@ nav {
 }
 nav ul {
 	margin: 0 auto;
-	width: 350px;
+	width: 370px;
 	list-style-type: none;
 	background: #FFFFFF;
 }
@@ -106,10 +106,10 @@ nav ul li a:hover {
 	width: 200px;
 }
 .radio_input {
-	width: 460px;
+	width: 350px;
 	margin-left: auto;
 	margin-right: auto;
-	margin-top: 60px;
+	margin-top: 70px;
 }
 .search {
 	display: inline;

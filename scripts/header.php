@@ -20,7 +20,7 @@
 					<li><a href=\"index.php\">Home</a></li>
 					<li><a href=\"\">Videos</a></li>
 					<li><a href=\"\">My Account</a></li>
-					<li><a href=\"\">Link</a></li>
+					<li><a href=\"\">Support</a></li>
 				</ul>
 			</nav>";
 	} else {

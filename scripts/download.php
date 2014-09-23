@@ -16,11 +16,11 @@ if (!empty($url) && filter_var($url, FILTER_VALIDATE_URL)) {
 	if (!$result) {
 		echo "Database error. Please try agian.";
 	}
-	$timestamp = date('Ymdis');
+	$timestamp = date('YmdHis');
 	file_put_contents("/srv/ts-yt-dl/tmp/$timestamp.ts", "_USERID=\"$userid\"\n_TSCALL=\"$parm $url\"\n_REMOTEADDR=\"$ip\"");
 	echo "<body>
 	<div id=\"content\">
-		<img class=\"thumbnail\" src=\"$thumbnail\">
+	<img class=\"thumbnail\" src=\"$thumbnail\">
 	</div>";
 } else {
 	header("Location: ./index.php?error=no_url");

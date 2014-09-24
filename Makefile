@@ -43,6 +43,10 @@ install:
 	cp -a scripts/* $(DESTDIR)/var/www/html/ts-yt-dl
 	chown -R www-data:www-data $(DESTDIR)/var/www/html/ts-yt-dl
 
+	# Install templates
+	mkdir -p $(DESTDIR)/usr/share/ts-yt-dl/templates
+	cp -a templates/* $(DESTDIR)/usr/share/ts-yt-dl
+
 	# Create www storage, tmp request, and log folders
 	mkdir -p $(DESTDIR)/srv/ts-yt-dl/www
 	mkdir -p $(DESTDIR)/srv/ts-yt-dl/tmp
@@ -62,6 +66,9 @@ uninstall:
 
 	# Uninstalling html executables
 	rm -rf $(DESTDIR)/var/www/html/ts-yt-dl
+
+	# Uninstall templates
+	rm -rf $(DESTDIR)/usr/share/ts-yt-dl/templates
 
 	# Uninstall www storage, tmp request, and log folders
 	rm -rf $(DESTDIR)/srv/ts-yt-dl/www

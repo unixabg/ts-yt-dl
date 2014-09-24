@@ -20,7 +20,6 @@ _REMOTEADDR=""
 _TIMESHIFT=""
 _TSCALL=""
 _USERID=""
-_EMAIL=""
 _TIMESHIFT_PATH=""
 _DATE_BEGIN=""
 _DATE_END=""
@@ -84,7 +83,7 @@ then
 	_DATE_END="`date -R`"
 	echo "End: ${_DATE_END}" >> "${_TIMESHIFT_PATH}"/log
 
-	# Creating mail and logging.
+	# Creating information for info template and logging.
 	if [ "${_ERRORTIMESHIFT}" -eq "0" ]
 	then
 		_STATUS="maybe-successful"
@@ -95,14 +94,12 @@ then
 	fi
 
 	sed -e "s/TIMESHIFT/${_TIMESHIFT}/g" \
-	    -e "s/EMAIL/${_EMAIL}/" \
 	    -e "s/DATE_START/${_DATE_START}/" \
 	    -e "s/DATE_END/${_DATE_END}/" \
 	    -e "s/STATUS/${_STATUS}/" \
-	    -e "s#SERVER#${_SERVER}#" \
-	"${_TEMPLATES}"/mail.txt > "${_TIMESHIFT_PATH}"/mail
+	"${_TEMPLATES}"/info > "${_TIMESHIFT_PATH}"/info.txt
 
-cat >> "${_TIMESHIFT_PATH}"/mail << EOF
+cat >> "${_TIMESHIFT_PATH}"/info << EOF
 
 ---
 
@@ -110,10 +107,7 @@ Here's some information we used for your time shift request:
 
 EOF
 
-	cat  "${_TIMESHIFT_PATH}"/"${_TIMESHIFT}".ts >> "${_TIMESHIFT_PATH}"/mail
-
-	# Sending mail
-	cat  "${_TIMESHIFT_PATH}"/mail | /usr/sbin/sendmail -t
+	cat  "${_TIMESHIFT_PATH}"/"${_TIMESHIFT}".ts >> "${_TIMESHIFT_PATH}"/info.txt
 
 	echo "`date +%b\ %d\ %H:%M:%S` ${_SERVER} ts-yt-dl: end time attempt (${_TIMESHIFT} : ${_STATUS})." >> /var/log/ts-yt-dl/log
 fi

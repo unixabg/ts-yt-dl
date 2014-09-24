@@ -99,7 +99,7 @@ then
 	    -e "s/STATUS/${_STATUS}/" \
 	"${_TEMPLATES}"/info > "${_TIMESHIFT_PATH}"/info.txt
 
-cat >> "${_TIMESHIFT_PATH}"/info << EOF
+cat >> "${_TIMESHIFT_PATH}"/info.txt << EOF
 
 ---
 

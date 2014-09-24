@@ -72,6 +72,9 @@ then
 	# Drop in to the shift folder.
 	cd "${_TIMESHIFT_PATH}"/
 
+	# Set the output status of build to pending - 2.
+	echo 2 > "${_TIMESHIFT_PATH}"/status.txt
+
 	# Drop some log info out.
 	_DATE_START="`date -R`"
 	echo "Begin ts-yt-dl: ${_DATE_START}" > "${_TIMESHIFT_PATH}"/log
@@ -86,28 +89,17 @@ then
 	# Creating information for info template and logging.
 	if [ "${_ERRORTIMESHIFT}" -eq "0" ]
 	then
-		_STATUS="maybe-successful"
+		#_STATUS="maybe-successful"
+		_STATUS="0"
 		echo "${_REMOTEADDR} - - `date +[%d/%b/%Y:%H:%m:%S\ %z]` \"${_TIMESHIFT}\" 200 - \"-\" \"\"">>/var/log/ts-yt-dl/status
 	else
-		_STATUS="maybe-failed"
+		#_STATUS="maybe-failed"
+		_STATUS="1"
 		echo "${_REMOTEADDR} - - `date +[%d/%b/%Y:%H:%m:%S\ %z]` \"${_TIMESHIFT}\" 404 - \"-\" \"\"">>/var/log/ts-yt-dl/status
 	fi
 
-	sed -e "s/TIMESHIFT/${_TIMESHIFT}/g" \
-	    -e "s/DATE_START/${_DATE_START}/" \
-	    -e "s/DATE_END/${_DATE_END}/" \
-	    -e "s/STATUS/${_STATUS}/" \
-	"${_TEMPLATES}"/info > "${_TIMESHIFT_PATH}"/info.txt
-
-cat >> "${_TIMESHIFT_PATH}"/info.txt << EOF
-
----
-
-Here's some information we used for your time shift request:
-
-EOF
-
-	cat  "${_TIMESHIFT_PATH}"/"${_TIMESHIFT}".ts >> "${_TIMESHIFT_PATH}"/info.txt
+	# Output status of build.
+	sed -e "s/STATUS/${_STATUS}/g" "${_TEMPLATES}"/status > "${_TIMESHIFT_PATH}"/status.txt
 
 	echo "`date +%b\ %d\ %H:%M:%S` ${_SERVER} ts-yt-dl: end time attempt (${_TIMESHIFT} : ${_STATUS})." >> /var/log/ts-yt-dl/log
 fi

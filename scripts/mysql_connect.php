@@ -2,8 +2,7 @@
 /*
 / MYSQL CONNECTION
 */
-require_once("../../mysql_connect.php");
-@ $db = new mysqli("$host", "$username", "$password", "$database");
+require_once("../../mysql_security.php");
 
 // CHECK CONNECTION
 if (mysqli_connect_errno()) {

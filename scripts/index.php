@@ -1,5 +1,4 @@
 <?php
-session_start();
 include("header.php");
 echo "<link rel=\"stylesheet\" href=\"./style/login.css\">";
 ?>

@@ -42,6 +42,7 @@ install:
 	mkdir -p $(DESTDIR)/var/www/html/ts-yt-dl
 	cp -a scripts/* $(DESTDIR)/var/www/html/ts-yt-dl
 	chown -R www-data:www-data $(DESTDIR)/var/www/html/ts-yt-dl
+	mv $(DESTDIR)/var/www/html/ts-yt-dl/mysql_security.php $(DESTDIR)/var/www/
 
 	# Install templates
 	mkdir -p $(DESTDIR)/usr/share/ts-yt-dl/templates
@@ -66,6 +67,7 @@ uninstall:
 
 	# Uninstalling html executables
 	rm -rf $(DESTDIR)/var/www/html/ts-yt-dl
+	rm -f $(DESTDIR)/var/www/mysql_security.php
 
 	# Uninstall templates
 	rm -rf $(DESTDIR)/usr/share/ts-yt-dl

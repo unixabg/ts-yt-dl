@@ -2,7 +2,7 @@
 /*
 / MYSQL CONNECTION
 */
-require_once("../../mysql_security.php");
+require_once("../../ts-yt-dl-defaults/mysql_security.php");
 
 // CHECK CONNECTION
 if (mysqli_connect_errno()) {

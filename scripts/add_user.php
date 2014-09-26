@@ -12,8 +12,12 @@ if (isset($_POST['first_name'], $_POST['last_name'], $_POST['username'], $_POST[
 		$result = $db->query($query);
 		if ($result) {
 			session_start();
-			header('Location: ./index.php');
+			$get_id = "SELECT userid FROM users WHERE username = \"$username\"";
+			$id_result = $db->query($get_id);
+			$user_id = $id_result->fetch_assoc();
 			$_SESSION['username'] = $username;
+			$_SESSION['userid'] = $user_id['userid'];
+			header('Location: ./index.php');
 		}else {
 			echo "Error adding user.";
 		}

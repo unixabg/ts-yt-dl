@@ -99,7 +99,7 @@ then
 	fi
 
 	# Output status of build.
-	sed -e "s/STATUS/${_STATUS}/g" "${_TEMPLATES}"/status > "${_TIMESHIFT_PATH}"/status.txt
+	echo ${_STATUS} > "${_TIMESHIFT_PATH}"/status.txt
 
 	echo "`date +%b\ %d\ %H:%M:%S` ${_SERVER} ts-yt-dl: end time attempt (${_TIMESHIFT} : ${_STATUS})." >> /var/log/ts-yt-dl/log
 fi

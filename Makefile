@@ -42,19 +42,18 @@ install:
 	mkdir -p $(DESTDIR)/var/www/html/ts-yt-dl
 	cp -a scripts/* $(DESTDIR)/var/www/html/ts-yt-dl
 	chown -R www-data:www-data $(DESTDIR)/var/www/html/ts-yt-dl
-	mv $(DESTDIR)/var/www/html/ts-yt-dl/mysql_security.php $(DESTDIR)/var/www/
 
-	# Create www storage, tmp request, and log folders
-	mkdir -p $(DESTDIR)/srv/ts-yt-dl/www
-	mkdir -p $(DESTDIR)/srv/ts-yt-dl/tmp
+	# Installing defaults
+	mkdir -p $(DESTDIR)/var/www/ts-yt-dl-defaults
+	install -D -m 0600 defaults/ts-yt-dl $(DESTDIR)/var/www/html/ts-yt-dl-defaults
+	install -D -m 0600 defaults/mysql_security.php $(DESTDIR)/var/www/html/ts-yt-dl-defaults
+	chown www-data:www-data $(DESTDIR)/var/www/html/ts-yt-dl-defaults
+
+	# Create www storage and log folders
+	mkdir -p $(DESTDIR)/srv/ts-yt-dl
 	mkdir -p $(DESTDIR)/var/log/ts-yt-dl
-	chown www-data:www-data $(DESTDIR)/srv/ts-yt-dl/www
-	chown www-data:www-data $(DESTDIR)/srv/ts-yt-dl/tmp
+	chown www-data:www-data $(DESTDIR)/srv/ts-yt-dl
 	chown www-data:www-data $(DESTDIR)/var/log/ts-yt-dl
-
-	# Install crontab
-	install -D -m 0644 cron/ts-yt-dl-crontab $(DESTDIR)/etc/cron.d/ts-yt-dl
-	install -D -m 0755 cron/ts-yt-dl-cron $(DESTDIR)/etc/cron.hourly/ts-yt-dl
 
 	@echo " done."
 
@@ -65,14 +64,12 @@ uninstall:
 	rm -rf $(DESTDIR)/var/www/html/ts-yt-dl
 	rm -f $(DESTDIR)/var/www/mysql_security.php
 
-	# Uninstall www storage, tmp request, and log folders
-	rm -rf $(DESTDIR)/srv/ts-yt-dl/www
-	rm -rf $(DESTDIR)/srv/ts-yt-dl/tmp
-	rm -rf $(DESTDIR)/var/log/ts-yt-dl
+	# Uninstalling defaults
+	rm -rf $(DESTDIR)/var/www/ts-yt-dl-defaults
 
-	# Uninstall crontab
-	rm -f $(DESTDIR)/etc/cron.d/ts-yt-dl
-	rm -f $(DESTDIR)/etc/cron.hourly/ts-yt-dl
+	# Uninstall www storage and log folders
+	rm -rf $(DESTDIR)/srv/ts-yt-dl
+	rm -rf $(DESTDIR)/var/log/ts-yt-dl
 
 	@echo " done."
 

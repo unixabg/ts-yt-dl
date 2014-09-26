@@ -17,7 +17,11 @@ if (!empty($url) && filter_var($url, FILTER_VALIDATE_URL)) {
 		echo "Database error. Please try agian.";
 	}
 	$timestamp = date('YmdHis');
-	file_put_contents("/srv/ts-yt-dl/tmp/$timestamp.ts", "_USERID=\"$userid\"\n_TSCALL=\"$parm $url\"\n_REMOTEADDR=\"$ip\"");
+	if (!mkdir("$ts-yt-dl_data_path/$userid/$timestamp", 0755, true)) {
+	    die('Failed to create folders...');
+	}
+	//file_put_contents("/srv/ts-yt-dl/tmp/$timestamp.ts", "_USERID=\"$userid\"\n_TSCALL=\"$parm $url\"\n_REMOTEADDR=\"$ip\"");
+	exec("youtube-dl -o $ts-yt-dl_data_path/$userid/$timestamp $parm $url");
 	echo "<body>
 	<div id=\"content\">
 	<img class=\"thumbnail\" src=\"$thumbnail\">

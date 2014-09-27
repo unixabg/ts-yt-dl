@@ -10,12 +10,7 @@ $parm = $_POST['parm'];
 $thumbnail = exec("youtube-dl --get-thumbnail $url");
 if (!empty($url) && filter_var($url, FILTER_VALIDATE_URL)) {
 	// write to file
-	$query = "INSERT INTO videos (userid, url) VALUES ($userid, \"$url\")";
-	$result = $db->query($query);
 	$ip = $_SERVER['REMOTE_ADDR'];
-	if (!$result) {
-		echo "Database error. Please try agian.";
-	}
 	$timestamp = date('YmdHis');
 	if (!mkdir("$ts-yt-dl_data_path/$userid/$timestamp", 0755, true)) {
 	    die('Failed to create folders...');

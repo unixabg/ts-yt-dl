@@ -10,7 +10,7 @@ $parm = $_POST['parm'];
 $thumbnail = exec("youtube-dl --get-thumbnail $url");
 if (!empty($url) && filter_var($url, FILTER_VALIDATE_URL)) {
 	// write to file
-	$ip = $_SERVER['REMOTE_ADDR'];
+	//$ip = $_SERVER['REMOTE_ADDR'];
 	$timestamp = date('YmdHis');
 	if (!mkdir("$ts-yt-dl_data_path/$userid/$timestamp", 0755, true)) {
 	    die('Failed to create folders...');

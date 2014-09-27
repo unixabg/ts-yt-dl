@@ -16,7 +16,7 @@ if (!empty($url) && filter_var($url, FILTER_VALIDATE_URL)) {
 	    die('Failed to create folders...');
 	}
 	//file_put_contents("/srv/ts-yt-dl/tmp/$timestamp.ts", "_USERID=\"$userid\"\n_TSCALL=\"$parm $url\"\n_REMOTEADDR=\"$ip\"");
-	exec("youtube-dl -o $ts-yt-dl_data_path/$userid/$timestamp $parm $url");
+	exec("nohup youtube-dl -o $ts-yt-dl_data_path/$userid/$timestamp $parm $url > /dev/null 2>&1 &");
 	echo "<body>
 	<div id=\"content\">
 	<img class=\"thumbnail\" src=\"$thumbnail\">

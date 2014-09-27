@@ -1,5 +1,6 @@
 <?php
 include("header.php");
+require('../../ts-yt-dl-defaults/ts-yt-dl');
 require_once('../../ts-yt-dl-defaults/mysql_security.php');
 require_once("functions.php");
 login_check();
@@ -10,11 +11,13 @@ $parm = $_POST['parm'];
 $thumbnail = exec("youtube-dl --get-thumbnail $url");
 if (!empty($url) && filter_var($url, FILTER_VALIDATE_URL)) {
 	// write to file
-	//$ip = $_SERVER['REMOTE_ADDR'];
+	$ip = $_SERVER['REMOTE_ADDR'];
 	$timestamp = date('YmdHis');
-	if ( mkdir("/srv/ts-yt-dl/$userid/$timestamp", 0755, true) ) {
+	if ( mkdir("$data_path/$userid/downloads/$timestamp", 0755, true) ) {
 		$title = exec("youtube-dl --get-title $url");
-		exec("youtube-dl -o \"/srv/ts-yt-dl/$userid/$timestamp/$title.mp4\" $parm $url &");
+		//echo "$data_path/$userid/downloads/$timestamp/$title.mp4";
+		file_put_contents("$data_path/$userid/downloads/$timestamp/log", "Timestamp = $timestamp\nRemote IP = $ip\nParm = $parm\nVideo URL = $url\n");
+		exec("nohup youtube-dl -o \"$data_path/$userid/downloads/$timestamp/$title.mp4\" $parm $url >> \"$data_path/$userid/downloads/$timestamp/log\" &");
 	} else {
 		echo "Failed to create directory!";
 	}

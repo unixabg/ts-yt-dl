@@ -1,1 +1,6 @@
-$ts-yt-dl_data_path="/srv/ts-yt-dl"
+<?php
+
+// Set some default variables.
+$data_path = '/srv/ts-yt-dl';
+
+?>

@@ -12,11 +12,12 @@ if (!empty($url) && filter_var($url, FILTER_VALIDATE_URL)) {
 	// write to file
 	//$ip = $_SERVER['REMOTE_ADDR'];
 	$timestamp = date('YmdHis');
-	if (!mkdir("$ts-yt-dl_data_path/$userid/$timestamp", 0755, true)) {
-	    die('Failed to create folders...');
+	if ( mkdir("/srv/ts-yt-dl/$userid/$timestamp", 0755, true) ) {
+		$title = exec("youtube-dl --get-title $url");
+		exec("youtube-dl -o \"/srv/ts-yt-dl/$userid/$timestamp/$title.mp4\" $parm $url &");
+	} else {
+		echo "Failed to create directory!";
 	}
-	//file_put_contents("/srv/ts-yt-dl/tmp/$timestamp.ts", "_USERID=\"$userid\"\n_TSCALL=\"$parm $url\"\n_REMOTEADDR=\"$ip\"");
-	exec("nohup youtube-dl -o $ts-yt-dl_data_path/$userid/$timestamp $parm $url > /dev/null 2>&1 &");
 	echo "<body>
 	<div id=\"content\">
 	<img class=\"thumbnail\" src=\"$thumbnail\">

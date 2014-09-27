@@ -1,6 +1,6 @@
 <?php
 include("header.php");
-require_once('./mysql_connect.php');
+require_once('../../ts-yt-dl-defaults/mysql_security.php');
 require_once("functions.php");
 login_check();
 session_start();

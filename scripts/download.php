@@ -1,7 +1,7 @@
 <?php
 include("header.php");
 require('../../ts-yt-dl-defaults/ts-yt-dl');
-require_once('../../ts-yt-dl-defaults/mysql_security.php');
+require_once('../../ts-yt-dl-defaults/mysql_security');
 require_once("functions.php");
 login_check();
 session_start();

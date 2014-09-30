@@ -46,7 +46,7 @@ install:
 	# Installing defaults
 	mkdir -p $(DESTDIR)/var/www/ts-yt-dl-defaults
 	install -D -m 0600 defaults/ts-yt-dl $(DESTDIR)/var/www/ts-yt-dl-defaults
-	install -D -m 0600 defaults/mysql_security.php $(DESTDIR)/var/www/ts-yt-dl-defaults
+	install -D -m 0600 defaults/mysql_security $(DESTDIR)/var/www/ts-yt-dl-defaults
 	chown -R www-data:www-data $(DESTDIR)/var/www/ts-yt-dl-defaults
 
 	# Create www storage and log folders

@@ -1,0 +1,10 @@
+<dvdauthor  dest="./mpegs/dvd" >
+	<vmgm>
+		<menus>
+			<video format="ntsc"/>
+			<audio/>
+		</menus>
+	</vmgm>
+	<titleset>
+		<titles>
+			<pgc>

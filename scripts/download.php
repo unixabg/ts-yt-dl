@@ -18,7 +18,7 @@ if (!empty($url) && filter_var($url, FILTER_VALIDATE_URL)) {
 			$thumbnail = exec("youtube-dl --get-thumbnail $url");
 			//echo "$data_path/$userid/videos/$timestamp/$title.mp4";
 			file_put_contents("$data_path/$userid/videos/$timestamp/log", "Timestamp = $timestamp\nRemote IP = $ip\nDownload Type = $dtype\nVideo URL = $url\n");
-			exec("nohup youtube-dl --write-thumbnail -o \"$data_path/$userid/videos/$timestamp/$title.mp4\" $dtype $url >> \"$data_path/$userid/videos/$timestamp/log\" &");
+			exec("nohup youtube-dl --write-thumbnail -o \"$data_path/$userid/videos/$timestamp/$title.mp4\" $url >> \"$data_path/$userid/videos/$timestamp/log\" &");
 		} else {
 			echo "Failed to create directory!";
 		}

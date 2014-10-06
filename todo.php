@@ -6,10 +6,12 @@ include "header.php";
 		<div id="maincon">
 			<h1 class="texth1">To Do</h1>
 			<h4 class="texth4">
-			<p> Updated 201408526. </p>
+			<p> Updated 20141005. </p>
 				<ul>
-					<li>Update VCS to have a direct link to latest</li>
-					<li>Consider Makefile install</li>
+					<li>Add error image for failed requests on download.php see FIXME</li>
+					<li>Fix presentation of time shift for user</li>
+					<li><strike>Update VCS to have a direct link to latest</strike></li>
+					<li><strike>Consider Makefile install</strike></li>
 					<li></li>
 				</ul>
 			</p>

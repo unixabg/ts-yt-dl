@@ -31,8 +31,8 @@ echo "<link rel=\"stylesheet\" href=\"./style/login.css\">";
 				<input class=\"url_submit\" type=\"submit\" value=\"Download\">
 			</div>
 			<p class=\"radio_input\">
-				Video: <input lable=\"High\" type=\"radio\" name=\"dtype\" value=\" \" checked>
-				&nbsp;&nbsp;Audio only: <input type=\"radio\" name=\"dtype\" value=\"--extract-audio --audio-format mp3\">
+				Video: <input lable=\"High\" type=\"radio\" name=\"dtype\" value=\"video\" checked>
+				&nbsp;&nbsp;Audio only: <input type=\"radio\" name=\"dtype\" value=\"audio\">
 			</p>
 		</form>";
 	?>

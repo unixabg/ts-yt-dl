@@ -24,6 +24,15 @@ if (!empty($url) && filter_var($url, FILTER_VALIDATE_URL)) {
 		}
 	} elseif ($dtype == "audio"){
 		//download audio only
+		if ( mkdir("$data_path/$userid/audios/$timestamp", 0755, true) ) {
+			$title = exec("youtube-dl --get-title $url");
+			$thumbnail = exec("youtube-dl --get-thumbnail $url");
+			//echo "$data_path/$userid/audios/$timestamp/$title.mp4";
+			file_put_contents("$data_path/$userid/audios/$timestamp/log", "Timestamp = $timestamp\nRemote IP = $ip\nDownload Type = $dtype\nVideo URL = $url\n");
+			exec("nohup youtube-dl --extract-audio --audio-format mp3 --write-thumbnail -o \"$data_path/$userid/audios/$timestamp/$title.mp4\" $url >> \"$data_path/$userid/audios/$timestamp/log\" &");
+		} else {
+			echo "Failed to create directory for audio!";
+		}
 	} else {
 		echo "Invalid dtype variable passed!";
 	}

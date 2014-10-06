@@ -13,6 +13,7 @@ if (!empty($url) && filter_var($url, FILTER_VALIDATE_URL)) {
 	$ip = $_SERVER['REMOTE_ADDR'];
 	$timestamp = date('YmdHis');
 	if ($dtype == "video") {
+		//download video
 		if ( mkdir("$data_path/$userid/videos/$timestamp", 0755, true) ) {
 			$title = exec("youtube-dl --get-title $url");
 			$thumbnail = exec("youtube-dl --get-thumbnail $url");
@@ -20,7 +21,7 @@ if (!empty($url) && filter_var($url, FILTER_VALIDATE_URL)) {
 			file_put_contents("$data_path/$userid/videos/$timestamp/log", "Timestamp = $timestamp\nRemote IP = $ip\nDownload Type = $dtype\nVideo URL = $url\n");
 			exec("nohup youtube-dl --write-thumbnail -o \"$data_path/$userid/videos/$timestamp/$title.mp4\" $url >> \"$data_path/$userid/videos/$timestamp/log\" &");
 		} else {
-			echo "Failed to create directory!";
+			echo "Failed to create directory for video!";
 		}
 	} elseif ($dtype == "audio"){
 		//download audio only

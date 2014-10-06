@@ -5,7 +5,7 @@ exit 0
 
 echo "... Step 1 let us convert the video files to .mpeg files."
 rm -f ./mpegs/*.mpeg
-find ../ -type f -name *mp4 | awk -F\/ '{print "avconv -i \""$0"\" -target ntsc-dvd ./mpegs/\""substr($4,1,length($4)-4)".mpeg\""}' | sh
+find ../videos/ -type f -name *mp4 | awk -F\/ '{print "avconv -i \""$0"\" -target ntsc-dvd ./mpegs/\""substr($4,1,length($4)-4)".mpeg\""}' | sh
 echo "Done with Step 1."
 
 echo "... Step 2 let us setup an xml file for the dvd."

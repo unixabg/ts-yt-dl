@@ -26,9 +26,11 @@ if (!empty($url) && filter_var($url, FILTER_VALIDATE_URL)) {
 			} else {
 				// No info in $title.
 				file_put_contents("$data_path/$userid/videos/$timestamp/log", "Timestamp = $timestamp\nRemote IP = $ip\nDownload Type = $dtype\nVideo URL = $url\nError -- No title downloaded!!\n");
+				$thumbnail = './error.png';
 			}
 		} else {
 			echo "Failed to create directory for video!";
+			$thumbnail = './error.png';
 		}
 	} elseif ($dtype == "audio"){
 		//download audio only
@@ -43,14 +45,16 @@ if (!empty($url) && filter_var($url, FILTER_VALIDATE_URL)) {
 			} else {
 				// No info in $title.
 				file_put_contents("$data_path/$userid/audios/$timestamp/log", "Timestamp = $timestamp\nRemote IP = $ip\nDownload Type = $dtype\nVideo URL = $url\nError -- No title downloaded!!\n");
+				$thumbnail = './error.png';
 			}
 		} else {
 			echo "Failed to create directory for audio!";
+			$thumbnail = './error.png';
 		}
 	} else {
 		echo "Invalid dtype variable passed!";
+		$thumbnail = './error.png';
 	}
-	//FIXME - set thumbnail to an error image.
 	echo "<body>
 	<div id=\"content\">
 	<img class=\"thumbnail\" src=\"$thumbnail\">

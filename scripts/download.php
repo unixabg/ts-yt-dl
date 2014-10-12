@@ -8,6 +8,7 @@ session_start();
 $userid = $_SESSION['userid'];
 $url = $_POST['url'];
 $dtype = $_POST['dtype'];
+$status = "Attempting a time shift for ";
 if (!empty($url) && filter_var($url, FILTER_VALIDATE_URL)) {
 	// write to file
 	$ip = $_SERVER['REMOTE_ADDR'];
@@ -23,13 +24,15 @@ if (!empty($url) && filter_var($url, FILTER_VALIDATE_URL)) {
 				//echo "$data_path/$userid/videos/$timestamp/$title.mp4";
 				file_put_contents("$data_path/$userid/videos/$timestamp/log", "Timestamp = $timestamp\nRemote IP = $ip\nDownload Type = $dtype\nVideo URL = $url\n");
 				exec("nohup youtube-dl --write-thumbnail -o \"$data_path/$userid/videos/$timestamp/$title.mp4\" $url >> \"$data_path/$userid/videos/$timestamp/log\" &");
+				$status = $status."\"".$title.".mp4\"";
 			} else {
 				// No info in $title.
 				file_put_contents("$data_path/$userid/videos/$timestamp/log", "Timestamp = $timestamp\nRemote IP = $ip\nDownload Type = $dtype\nVideo URL = $url\nError -- No title downloaded!!\n");
+				$status = "Error -- No title downloaded!!";
 				$thumbnail = './error.png';
 			}
 		} else {
-			echo "Failed to create directory for video!";
+			$status = "Failed to create directory for video!";
 			$thumbnail = './error.png';
 		}
 	} elseif ($dtype == "audio"){
@@ -42,22 +45,25 @@ if (!empty($url) && filter_var($url, FILTER_VALIDATE_URL)) {
 				$thumbnail = exec("youtube-dl --get-thumbnail $url");
 				file_put_contents("$data_path/$userid/audios/$timestamp/log", "Timestamp = $timestamp\nRemote IP = $ip\nDownload Type = $dtype\nVideo URL = $url\n");
 				exec("nohup youtube-dl --extract-audio --audio-format mp3 --write-thumbnail -o \"$data_path/$userid/audios/$timestamp/$title.mp4\" $url >> \"$data_path/$userid/audios/$timestamp/log\" &");
+				$status = $status."\"".$title.".mp3\"";
 			} else {
 				// No info in $title.
 				file_put_contents("$data_path/$userid/audios/$timestamp/log", "Timestamp = $timestamp\nRemote IP = $ip\nDownload Type = $dtype\nVideo URL = $url\nError -- No title downloaded!!\n");
+				$status = "Error -- No title downloaded!!";
 				$thumbnail = './error.png';
 			}
 		} else {
-			echo "Failed to create directory for audio!";
+			$status = "Failed to create directory for audio!";
 			$thumbnail = './error.png';
 		}
 	} else {
-		echo "Invalid dtype variable passed!";
+		$status = "Error -- Invalid dtype variable passed!";
 		$thumbnail = './error.png';
 	}
 	echo "<body>
 	<div id=\"content\">
 	<img class=\"thumbnail\" src=\"$thumbnail\">
+	<h4>$status</h4>
 	</div>";
 } else {
 	header("Location: ./index.php?error=no_url");

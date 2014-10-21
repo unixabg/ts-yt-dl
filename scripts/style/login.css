@@ -1,17 +1,26 @@
 .login_box {
 	margin: 0px auto;
-	width: 300px;
+	width: 290px;
 	background: rgb(247,247,247);
 	text-align: center;
-	padding:  3.75em 2.75em 1.75em 2em;
+	padding:  3.75em 2.75em 1.75em 2.75em;
 	border-radius: 2px;
 	box-shadow: 0px 2px 2px rgba(0, 0, 0, .3);
 }
 .login_input {
-	width: 100%;
+	width: calc(100% - 20px);
 	border: 1px solid #DBDBDB;
-	padding: 12px 10px;
+	padding: 12px 9px;
 	font-size: 16px;
+}
+.login_input[name='first_name'] {
+	width: calc(50% - 20px);
+	float: left;
+}
+.login_input[name='last_name'] {
+	width: calc(50% - 20px);
+	float: right;
+	border-bottom: none;
 }
 .login_input:nth-child(odd) {
 	border-bottom: 1px solid rgb(247, 247, 247);
@@ -31,6 +40,7 @@
 	color: white;
 	border: none;
 	border-radius: 3px;
+	font-size: 100%;
 }
 .login_submit:hover {
 	cursor: pointer;

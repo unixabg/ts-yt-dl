@@ -17,7 +17,7 @@ if (isset($_POST['first_name'], $_POST['last_name'], $_POST['username'], $_POST[
 			$user_id = $id_result->fetch_assoc();
 			$_SESSION['username'] = $username;
 			$_SESSION['userid'] = $user_id['userid'];
-			header('Location: ./index.php');
+			header('Location: ./home.php');
 		}else {
 			echo "Error adding user.";
 		}

@@ -11,7 +11,7 @@ if (isset($_POST['username'], $_POST['password'])) {
 			session_start();
 			$_SESSION['username'] = $username;
 			$_SESSION['userid'] = $row['userid'];;
-			header('Location: ./index.php');
+			header('Location: ./home.php');
 		} else {
 			header('Location: ./index.php?error=invalid_user');
 		}

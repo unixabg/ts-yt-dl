@@ -8,17 +8,14 @@ if (isset($_POST['first_name'], $_POST['last_name'], $_POST['username'], $_POST[
 		$username = $_POST['username'];
 		$password = md5($_POST['password']);
 
-		$query = "INSERT INTO users (email, password, firstname, lastname, username) VALUES (\"$email\", \"$password\", \"$first_name\", \"$last_name\", \"$username\")";
+		$query = "INSERT INTO users (email, password, firstname, lastname, username, authorized) VALUES (\"$email\", \"$password\", \"$first_name\", \"$last_name\", \"$username\", \"0\")";
 		$result = $db->query($query);
 		if ($result) {
-			session_start();
 			$get_id = "SELECT userid FROM users WHERE username = \"$username\"";
 			$id_result = $db->query($get_id);
 			$user_id = $id_result->fetch_assoc();
-			$_SESSION['username'] = $username;
-			$_SESSION['userid'] = $user_id['userid'];
-			header('Location: ./home.php');
-		}else {
+			header('Location: ./test.php');
+		} else {
 			echo "Error adding user.";
 		}
 	} else {

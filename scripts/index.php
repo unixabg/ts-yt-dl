@@ -16,6 +16,8 @@
 		echo "<p class=\"error\">Invalid username and/or password.</p>";
 	} elseif ($_GET['error'] == "nologin") {
 		echo "<p class=\"error\">You are not logged in.</p>";
+	} elseif ($_GET['error'] == "not_authorized") {
+		echo "<p class=\"error\">You have not been authorized.</p>";
 	}
 	?>
 	<div class="login_box">

@@ -33,10 +33,11 @@ DROP TABLE IF EXISTS `users`;
 CREATE TABLE `users` (
   `userid` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `username` char(32) NOT NULL,
-  `email` char(50) DEFAULT NULL,
-  `password` char(32) DEFAULT NULL,
-  `firstname` char(32) DEFAULT NULL,
-  `lastname` char(32) DEFAULT NULL,
+  `email` char(50) NOT NULL,
+  `password` char(32) NOT NULL,
+  `firstname` char(32) NOT NULL,
+  `lastname` char(32) NOT NULL,
+  `authorized` int(3) NOT NULL,
   PRIMARY KEY (`userid`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 

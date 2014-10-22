@@ -57,6 +57,20 @@ install:
 
 	@echo " done."
 
+upgrade:
+	@echo "Upgrading ts-yt-dl ..."
+
+	# Updating html executables
+	cp -a scripts/* $(DESTDIR)/var/www/html/ts-yt-dl
+	chown -R www-data:www-data $(DESTDIR)/var/www/html/ts-yt-dl
+
+	# Diff defaults
+	diff defaults/ts-yt-dl $(DESTDIR)/var/www/ts-yt-dl-defaults || exit 0
+	diff defaults/mysql_security $(DESTDIR)/var/www/ts-yt-dl-defaults || exit 0
+
+	@echo " ** Please remember to examine diffs on the defaults files. **"
+	@echo " done."
+
 uninstall:
 	@echo "Uninstalling ts-yt-dl ..."
 

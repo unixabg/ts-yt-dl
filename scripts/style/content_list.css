@@ -1,0 +1,42 @@
+/* Table layout for listing users downloads */
+table {
+	margin-top: -20px;
+	width: 100%;
+	font-weight: 400;
+	border-collapse: collapse;
+	border-radius: .5em;
+}
+table th {
+	border-bottom: 1px solid #A4A4A4;
+	font-weight: 400;
+	background-color: #81BEF7;
+	height: 1.5em;
+}
+table td {
+	padding: 0.5em 0em;
+}
+table tr:nth-child(odd) {
+	background: #E6E6E6;
+}
+table tr:nth-last-child(1) {
+	border-bottom: 1px solid #ebebeb;
+}
+.large_cell {
+	padding-left: 1.5em;
+	text-align: left;
+}
+.medium_cell {
+	text-align: left;
+}
+.small_cell {
+	text-align: center;
+	padding: 0em 1.5em;
+}
+.media_title {
+	font-weight: 400;
+	display: inline;
+}
+.download_submit {
+	float: left;
+	margin: 2.5em 0.5em;
+}

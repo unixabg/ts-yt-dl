@@ -1,9 +1,12 @@
 <?php
-// check if user is logged
+// check if the user is logged in
 function login_check() {
-	if (!isset($_SESSION['username']) && empty($_SESSION['username'])) {
-		header("Location: index.php?error=nologin");
-		exit;
+	session_start();
+	if (isset($_SESSION['username']) || !empty($_SESSION['username'])) {
+		global $userid;
+		$userid = $_SESSION['userid'];
+	} else {
+		header("Location: ./index.php?error=nologin");
 	}
 }
 ?>

@@ -2,6 +2,6 @@
 /*
 / MYSQL CONNECTION
 */
-@ $db = new mysqli("localhost", "USERNAME", "PASSWORD", "tsytdl");
+@ $db = new mysqli("localhost", "tsytdluser", "PASSWORD", "tsytdl");
 
 ?>

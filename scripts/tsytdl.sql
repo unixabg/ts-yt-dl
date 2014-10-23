@@ -16,8 +16,8 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 /* CREATE user for database */
-CREATE USER `tsytdl`@`localhost` IDENTIFIED BY 'mypass';
-GRANT DELETE, INSERT, SELECT, UPDATE ON tsytdl.* TO `tsytdl`;
+CREATE USER `tsytdluser`@`localhost` IDENTIFIED BY 'mypass';
+GRANT DELETE, INSERT, SELECT, UPDATE ON tsytdl.* TO `tsytdluser`;
 --
 -- Table structure for table `users`
 --

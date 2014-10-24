@@ -19,6 +19,7 @@
 		<nav>
 				<ul>
 					<li><a href=\"./home.php\">Home</a></li>
+					<li><a href=\"\">Audios</a></li>
 					<li><a href=\"./videos.php\">Videos</a></li>
 					<li><a href=\"\">My Account</a></li>
 					<li><a href=\"\">Support</a></li>

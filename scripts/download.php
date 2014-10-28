@@ -17,6 +17,8 @@ if (!empty($url) && filter_var($url, FILTER_VALIDATE_URL)) {
 		//download video
 		if ( mkdir("$data_path/$userid/videos/$timestamp", 0755, true) ) {
 			$title = exec("youtube-dl --get-title $url");
+			$title = preg_replace("/[^a-zA-Z0-9:#!,. ]+/", "", $title);
+			// echo "$title";
 			if(strlen(trim($title)) > 0){
 				// $title has at least one non-space character
 				// then start the download process.

@@ -21,8 +21,11 @@
 					<li><a href=\"./home.php\">Home</a></li>
 					<li><a href=\"\">Audios</a></li>
 					<li><a href=\"./videos.php\">Videos</a></li>
-					<li><a href=\"\">My Account</a></li>
-					<li><a href=\"\">Support</a></li>
+					<li><a href=\"\">My Account</a></li>";
+					if ($_SESSION['authorized'] == 10) {
+						echo "<li><a href=\"./admin.php\">Admin</a></li>";
+					}
+					echo "<li><a href=\"\">Support</a></li>
 				</ul>
 			</nav>";
 	} else {

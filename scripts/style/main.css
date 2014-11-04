@@ -31,13 +31,15 @@ nav {
 }
 nav ul {
 	margin: 0 auto;
-	width: 460px;
 	list-style-type: none;
 	background: #FFFFFF;
+	text-align: center;
 }
 nav ul li {
+	position: relative;
+	top: 0.5em;
 	background: #FFFFFF;
-	float: left;
+	display: inline;
 	padding: 3px;
 	margin-top: 10px;
 }
@@ -54,7 +56,7 @@ nav ul li a:hover {
 #content {
 	min-height: 500px;
 	background: #FFFFFF;
-	width: calc(100% - 100px);
+	width: calc(100% - 200px);
 	max-width: 1200px;
 	margin: 50px auto;
 	padding: 50px;

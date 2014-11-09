@@ -1,7 +1,8 @@
 <?php
 session_start();
 $userid = $_SESSION['userid'];
-$video = scandir("/srv/ts-yt-dl/$userid/videos/");
+require('../../ts-yt-dl-defaults/ts-yt-dl');
+$video = scandir("$data_path/$userid/videos/");
 foreach ($video as $timestamp) {
 	if (isset($_POST[$timestamp])) {
 		echo $timestamp."<br />";

@@ -11,7 +11,7 @@ echo "<body>
 		<form action=\"./ts_dvd.php\" method=\"POST\">
 			<table id=\"media_table\">
 				<tr>
-					<th><input type=\"checkbox\"></th>
+					<th></th>
 					<th class=\"medium_cell\"><h4>TS Ref. Number</h4></th>
 					<th class=\"large_cell\"><h4>Title</h4></th>
 					<th class=\"medium_cell\"><h4>File Size</h4></th>

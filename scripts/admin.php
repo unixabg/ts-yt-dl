@@ -1,5 +1,6 @@
 <?php
 include("./header.php");
+require('../../ts-yt-dl-defaults/ts-yt-dl');
 if ($_SESSION['authorized'] != 10) {
 	header('Location: ./home.php');
 	exit;
@@ -8,8 +9,18 @@ require("./mysql_connect.php");
 echo "<script src=\"./js/jquery-2.1.1.min.js\"></script>";
 echo "<script src=\"./js/admin_page.js\"></script>";
 echo "<link rel=\"stylesheet\" href=\"./style/admin.css\">";
+$log = file_get_contents($admin_log);
+$log = str_replace("\n", "<br />", $log);
 echo "<body>
 	<div id=\"content\">
+		<button class=\"log_button\">Show log</button>
+		<div class=\"log\">
+			<h1 class=\"box_header\">Admin Log</h1>
+			<h2 class=\"cancel_log\">X</h2>
+			<p>
+				$log
+			</p>
+		</div>
 		<table id=\"admin_table\">
 			<tr>
 				<th class=\"small_cell\">User Id</th>

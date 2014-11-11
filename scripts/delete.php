@@ -4,7 +4,7 @@ require('../../ts-yt-dl-defaults/ts-yt-dl');
 login_check();
 // Check if ts_id is set
 if (isset($_GET['ts_id'])) {
-	$ts_id = $_GET['ts_id'];
+	$ts_id = addslashes($_GET['ts_id']);
 	$media_path = "$data_path/$userid/videos/$ts_id/";
 	// Check if video exists
 	if (is_dir("$media_path")) {
@@ -18,6 +18,8 @@ if (isset($_GET['ts_id'])) {
 			}
 		}
 		rmdir($media_path);
+		$date = date("Y-m-d H:i:s");
+		file_put_contents($data_path."/".$userid['userid']."/user.log", "[$date]\tDeleted file \"$media_path\".\n", FILE_APPEND);
 		header("Location: ./videos.php");
 	} else {
 		echo "Could not find file on server.";

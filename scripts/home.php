@@ -2,8 +2,10 @@
 include("header.php");
 echo "<body>
 	<div id=\"content\">";
-		if ($_GET['error'] == "no_url") {
-			echo "<p class=\"error\">Invalid URL</p>";
+		if (isset($_GET['error'])) {
+			if ($_GET['error'] == "no_url") {
+				echo "<p class=\"error\">Invalid URL</p>";
+			}
 		}
 			echo "<div class=\"url_box\">
 			<form action=\"download.php\" method=\"POST\">

@@ -12,12 +12,14 @@
 	<div id="content">
 	<?php
 	echo "<h2 class=\"h2_title\">Sign in</h2>";
-	if ($_GET['error'] == "invalid_user") {
-		echo "<p class=\"error\">Invalid username and/or password.</p>";
-	} elseif ($_GET['error'] == "nologin") {
-		echo "<p class=\"error\">You are not logged in.</p>";
-	} elseif ($_GET['error'] == "not_authorized") {
-		echo "<p class=\"error\">You have not been authorized.</p>";
+	if (isset($_GET['error'])) {
+		if ($_GET['error'] == "invalid_user") {
+			echo "<p class=\"error\">Invalid username and/or password.</p>";
+		} elseif ($_GET['error'] == "nologin") {
+			echo "<p class=\"error\">You are not logged in.</p>";
+		} elseif ($_GET['error'] == "not_authorized") {
+			echo "<p class=\"error\">You have not been authorized.</p>";
+		}
 	}
 	?>
 	<div class="login_box">

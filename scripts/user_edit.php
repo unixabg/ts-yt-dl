@@ -1,53 +1,43 @@
 <?php
-session_start();
+require("./functions.php");
+login_check();
 if ($_SESSION['authorized'] != 10) {
 	header('Location: ./home.php');
 	exit;
 }
-require("./functions.php");
-login_check();
 require("./mysql_connect.php");
 require('../../ts-yt-dl-defaults/ts-yt-dl');
-if (isset($_GET['action']) && isset($_POST['userid'])) {
-	$action =  $_GET['action'];
+if (isset($_POST['action']) && isset($_POST['userid'])) {
+	$date = date("Y-m-d H:i:s");
+	$action =  $_POST['action'];
 	$cust_id = $_POST['userid'];
 	$status = $_POST['status'];
-	if ($action == "approve") {
-		$query = "UPDATE users SET authorized = $status WHERE userid = $cust_id";
-		$result = $db->query($query);
-		if ($result) {
+	$username = $_POST['username'];
+	if ($action == "Save Changes") {
+		$query = "UPDATE users SET authorized = $status, username = \"$username\" WHERE userid = $cust_id";
+		$update_user = $db->query($query);
+		if ($update_user) {
+			file_put_contents("$data_path/$cust_id/user.log","[$date]\tUser status changed to \"$status\".\n", FILE_APPEND);
+			file_put_contents("$admin_log", "[$date] Admin $userid: Changed user \"$cust_id\" status to \"$status\".\n", FILE_APPEND);
 			header("Location: ./admin.php");
 		}
-	} elseif ($action == "delete") {
-		//if ($userid == $cust_id) {
-		//	echo "You cannot delete your own account.";
-			//exit;
-		//}
-		$query = "DELETE FROM users WHERE userid = $cust_id";
-		//$delete = $db->query($query);
-		if ($rmdir) {
-				echo "User was deleted.";
+	} elseif ($action == "Delete") {
+		if ($userid == $cust_id) {
+			echo "You cannot delete your own account.";
+			exit;
 		}
-			/*$userdir = scandir("$data_path/$cust_id/");
-			$dir_count = count($userdir);
-			for ($u = 0; $u < $dir_count; $u++) {
-				if ($userdir[$u] != "." && $userdir[$u] != "..") {
-					if (is_dir("$data_path/$cust_id/".$userdir[$u])) {
-						$media_dir = scandir("$data_path/$cust_id/".$userdir[$u]);
-						echo "$data_path/$cust_id/".$userdir[$u];
-						$media_count = count($media_dir);
-						echo $media_count;
-						for ($m = 0; $m < $media_count; $m++) {
-						}
-					} elseif (is_file("$data_path/$cust_id/".$userid[$u])) {
-							//unlink("$data_path/$cust_id/".$userid[$u]);
-					}
-				}
-			}
-			//echo "User was deleted.";
-		//}*/
+		$userdir = "$data_path/$cust_id/";
+		delete_file( $userdir );
+		$query = "DELETE FROM users WHERE userid = $cust_id";
+		$delete = $db->query($query);
+		if ($delete) {
+			file_put_contents("$admin_log", "[$date] Admin $userid: Deleted user \"$cust_id\".\n", FILE_APPEND);
+			header("Location: ./admin.php");
+		}
 	} else {
 		echo "Action not reconized.";
 	}
+} else {
+	echo "Error";
 }
 ?>

@@ -1,10 +1,9 @@
 <?php
-session_start();
+include("./header.php");
 if ($_SESSION['authorized'] != 10) {
 	header('Location: ./home.php');
 	exit;
 }
-include("./header.php");
 require("./mysql_connect.php");
 echo "<script src=\"./js/jquery-2.1.1.min.js\"></script>";
 echo "<script src=\"./js/admin_page.js\"></script>";
@@ -39,16 +38,19 @@ echo "<body>
 							<td class=\"\"><button class=\"user_edit\" rowid=\"$x\">Edit User</button></td>
 					</tr>
 					<div class=\"user_box\" rowid=\"$x\">
-						User: ".$row['userid']."
-						<form action=\"./user_edit.php?action=approve\" method=\"POST\">
+						<h1 class=\"box_header\">Edit User</h1>
+						<p class=\"user\">User: ".$row['username']."</p>
+						<form action=\"./user_edit.php\" method=\"POST\">
 							<input type=\"hidden\" value=\"".$row['userid']."\" name=\"userid\">
-							<select name=\"status\">
+							Username:<input type=\"text\" value=\"".$row['username']."\" name=\"username\"\>
+							<select name=\"status\" class=\"drop_down\">
 								<option value=\"0\">Pending</option>
 								<option value=\"1\">Approve</option>
 								<option value=\"5\">Lock</option>
 								<option value=\"10\">Admin</option>
 							</select>
-							<input type=\"submit\" class=\"submit\" value=\"Save Changes\">
+							<input type=\"submit\" name=\"action\" onclick=\"return confirm('Are you sure you want to delete the users and all contents?')\" class=\"delete\" value=\"Delete\"/>
+							<input type=\"submit\" name=\"action\" class=\"submit\" value=\"Save Changes\">
 						</form>
 						<button class=\"cancel\" rowid=\"$x\">Cancel</button>
 					</div>";

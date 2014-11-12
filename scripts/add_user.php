@@ -9,6 +9,13 @@ if (isset($_POST['first_name'], $_POST['last_name'], $_POST['username'], $_POST[
 		$username = mysqli_real_escape_string($db, $_POST['username']);
 		$password = mysqli_real_escape_string($db, md5($_POST['password']));
 
+		// Check if user exists
+		$check = "SELECT * FROM users WHERE email = \"$email\" AND username = \"$username\";";
+		$check_result = $db->query($check);
+		if ($check_result->num_rows >= 1) {
+			echo "User has already been created.";
+			exit;
+		}
 		$query = "INSERT INTO users (email, password, firstname, lastname, username, authorized) VALUES (\"$email\", \"$password\", \"$first_name\", \"$last_name\", \"$username\", \"0\")";
 		$result = $db->query($query);
 		if ($result) {

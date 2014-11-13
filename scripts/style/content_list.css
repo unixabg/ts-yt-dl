@@ -45,6 +45,7 @@ table tr:hover {
 	margin: 2.5em 0.5em;
 }
 .saltire {
+	white-space: nowrap;
 	padding: 0.25em 0.75em;
 	text-decoration: none;
 	color: #333333;

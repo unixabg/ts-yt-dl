@@ -19,7 +19,7 @@
 		<nav>
 				<ul>
 					<li><a href=\"./home.php\">Home</a></li>
-					<li><a href=\"\">Audios</a></li>
+					<li><a href=\"./audios.php\">Audios</a></li>
 					<li><a href=\"./videos.php\">Videos</a></li>
 					<li><a href=\"\">My Account</a></li>";
 					if ($_SESSION['authorized'] == 10) {

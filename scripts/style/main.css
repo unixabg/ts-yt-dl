@@ -136,3 +136,9 @@ nav ul li a:hover {
 .search_submit:hover {
 	cursor: pointer;
 }
+.header {
+	margin-top: -1em;
+	font-weight: normal;
+	color: #4D90FE;
+	text-align: center;
+}

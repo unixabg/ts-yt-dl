@@ -25,7 +25,7 @@
 					if ($_SESSION['authorized'] == 10) {
 						echo "<li><a href=\"./admin.php\">Admin</a></li>";
 					}
-					echo "<li><a href=\"\">Support</a></li>
+					echo "<li><a href=\"./support.php\">Support</a></li>
 				</ul>
 			</nav>";
 	} else {

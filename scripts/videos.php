@@ -8,6 +8,7 @@ $timestamp= scandir("$data_path/$userid/videos/");
 $timestamp_count = count($timestamp);
 echo "<body>
 	<div id=\"content\">
+		<h1 class=\"header\">Videos</h1>
 		<form action=\"./ts_dvd.php\" method=\"POST\">
 			<table id=\"media_table\">
 				<tr>

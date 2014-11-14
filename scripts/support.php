@@ -45,10 +45,10 @@ echo "<div id=\"content\">
 				<h1 class=\"header\">Support</h1>";
 echo '<table cellpadding="10">' ;
 foreach ($indicesServer as $arg) {
-    if (isset($_SERVER[$arg])) {
-        echo '<tr><td>'.$arg.'</td><td>' . $_SERVER[$arg] . '</td></tr>' ;
-    } else {
-        echo '<tr><td>'.$arg.'</td><td>-</td></tr>' ;
-    }
+	if (isset($_SERVER[$arg])) {
+		echo '<tr><td>'.$arg.'</td><td>' . $_SERVER[$arg] . '</td></tr>' ;
+	} else {
+		echo '<tr><td>'.$arg.'</td><td>-</td></tr>' ;
+	}
 }
 echo '</table>' ;

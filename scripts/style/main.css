@@ -53,6 +53,9 @@ nav ul li a:hover {
 	cursor: pointer;
 	border-bottom: 1px solid #FE2E2E;
 }
+a {
+	color: #4D90FE;
+}
 #content {
 	min-height: 500px;
 	background: #FFFFFF;
@@ -141,4 +144,21 @@ nav ul li a:hover {
 	font-weight: normal;
 	color: #4D90FE;
 	text-align: center;
+}
+.video_player {
+	width: 100%;
+	text-align: center;
+}
+.download_link {
+	margin: 1.75em auto;
+	background: #4D90FE;
+	color: white;
+	text-decoration: none;
+	padding: 0.5em;
+	width: 250px;
+	display: block;
+}
+.download_link:hover {
+	cursor: pointer;
+	background: rgb(57, 124, 234);
 }

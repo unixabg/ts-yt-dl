@@ -8,6 +8,20 @@ body {
 	background: #F2F2F2;
 	margin: 0;
 }
+.logo {
+	position: relative;
+	top: -0.5em;
+	float: left;
+}
+.logo a {
+	font-size: 125%;
+	text-decoration: none;
+	color: black;
+}
+.logo a:hover {
+	cursor: pointer;
+	text-decoration: underline;
+}
 #banner {
 	width: calc(100% - 10px);
 	background: #FFFFFF;

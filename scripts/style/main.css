@@ -162,3 +162,6 @@ a {
 	cursor: pointer;
 	background: rgb(57, 124, 234);
 }
+.audio_player {
+	padding: 15em 0em 5em 0em;
+}

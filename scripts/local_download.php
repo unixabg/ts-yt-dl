@@ -2,10 +2,12 @@
 include("./header.php");
 require('../../ts-yt-dl-defaults/ts-yt-dl');
 $timestamp = $_GET['timestamp'];
-$video = addslashes($_GET['video']);
-header("Content-type: ".mime_content_type("$data_path/$userid/videos/$timestamp/$video"));
-header("Content-Disposition: attachment; filename=\"$video\"");
+$media = addslashes($_GET['media']);
+$page = $_GET['page'];
+header("Content-type: ".mime_content_type("$data_path/$userid/$page/$timestamp/$media"));
+header('Content-Length: ' . filesize("$data_path/$userid/$page/$timestamp/$media"));
+header("Content-Disposition: attachment; filename=\"$media\"");
 ob_clean();
 flush();
-readfile("$data_path/$userid/videos/$timestamp/$video");
+readfile("$data_path/$userid/$page/$timestamp/$media");
 ?>

@@ -35,7 +35,7 @@ echo "<body>
 							echo "<td class=\"medium_cell\">".$timestamp[$t]."</td>";
 							echo "<td class=\"large_cell\"><a href=\"./play_media.php?timestamp=".$timestamp[$t]."&media=".$video[$v]."&page=videos\"><h4 class=\"media_title\">&#9658 ".$video[$v]."</h4></a></td>";
 							echo "<td class=\"medium_cell\">". number_format(filesize("$data_path/$userid/videos/".$timestamp[$t]."/".$video[$v]) / 1024, 2) ." KB</td>";
-							echo "<td class=\"small_cell\"><a onclick=\"return confirm('Are you sure you to delete this?')\" href=\"./delete.php?ts_id=".$timestamp[$t]."\" class=\"saltire\" > Delete</a></td>";
+							echo "<td class=\"small_cell\"><a onclick=\"return confirm('Are you sure you to delete this?')\" href=\"./delete.php?ts_id=".$timestamp[$t]."&media_type=videos\" class=\"saltire\" > Delete</a></td>";
 						echo "</tr>";
 					}
 				}

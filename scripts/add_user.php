@@ -13,7 +13,8 @@ if (isset($_POST['first_name'], $_POST['last_name'], $_POST['username'], $_POST[
 		$check = "SELECT * FROM users WHERE email = \"$email\" AND username = \"$username\";";
 		$check_result = $db->query($check);
 		if ($check_result->num_rows >= 1) {
-			echo "User has already been created.";
+			echo "Username already exists. Please try again with another username.";
+			echo "<META http-equiv=\"refresh\" content=\"7;URL=./\">";
 			exit;
 		}
 		$query = "INSERT INTO users (email, password, firstname, lastname, username, authorized) VALUES (\"$email\", \"$password\", \"$first_name\", \"$last_name\", \"$username\", \"0\")";
@@ -31,12 +32,15 @@ if (isset($_POST['first_name'], $_POST['last_name'], $_POST['username'], $_POST[
 			file_put_contents($data_path."/".$user_id['userid']."/user.log", $message);
 			header('Location: ./test.php');
 		} else {
-			echo "Error adding user.";
+			echo "Error adding account information! Please try again.";
+			echo "<META http-equiv=\"refresh\" content=\"7;URL=./\">";
 		}
 	} else {
 		echo "All forms were not submited.";
+		echo "<META http-equiv=\"refresh\" content=\"7;URL=./\">";
 	}
 } else {
 	echo "All forms were not submited.";
+	echo "<META http-equiv=\"refresh\" content=\"7;URL=./\">";
 }
 ?>

@@ -11,18 +11,22 @@ if (isset($_POST['old_password']) && isset($_POST['new_password']) && isset($_PO
 	$password = $check_result->fetch_assoc();
 	$check_num = $check_result->num_rows;
 	if ($password['password'] != $old_password) {
-		echo "Old password did not match";
-		exit;
-	}
-	$new_password = md5($_POST['new_password']);
-	$confirm_password = md5($_POST['confirm_password']);
-	$query_password = "UPDATE users SET password = \"$new_password\" WHERE userid = $userid";
-	$result = $db->query($query_password);
-	if ($result) {
-		echo "<b>Password changed.</b>";
-		header("Location: ./account.php?status=Password Changed");
+		echo "<p class=\"error\">The password you entered did match the existing one.</p>";
 	} else {
-		echo "<b>Error occured, please try again.</b>";
+		$new_password = md5($_POST['new_password']);
+		$confirm_password = md5($_POST['confirm_password']);
+		if ($new_password == $confirm_password) {
+			$query_password = "UPDATE users SET password = \"$new_password\" WHERE userid = $userid";
+			$result = $db->query($query_password);
+			if ($result) {
+				echo "<b>Password changed.</b>";
+				header("Location: ./account.php?status=Password Changed");
+			} else {
+				echo "<b>Error occured, please try again.</b>";
+			}
+		} else {
+		echo "<p class=\"error\">New passwords entered did not match.</p>";
+		}
 	}
 }
 echo "

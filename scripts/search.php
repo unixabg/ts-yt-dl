@@ -9,7 +9,7 @@ echo "<link rel=\"stylesheet\" href=\"./style/content_list.css\">";
 	if (isset($_GET['search']) && !empty($_GET['search'])) {
 		$search = $_GET['search'];
 		$count = 0;
-		echo "<p>Search results for <i>\"$search\"</i></p>";
+		echo "<p>Search results for <i>\"$search\"</i></p><br>";
 		echo "<table id=\"media_table\">
 				<tr>
 					<th class=\"medium_cell\"><h4>TS Ref. Number</h4></th>
@@ -61,7 +61,7 @@ echo "<link rel=\"stylesheet\" href=\"./style/content_list.css\">";
 				}
 			}
 		}
-		echo "$count results found:";
 		echo "</table>";
+		echo "<br> $count results found.";
 	}
 	?>

@@ -28,6 +28,7 @@
 				<input class="login_input" type="password" name="password" placeholder="Password"/>
 				<input class="login_submit" type="submit" value="Sign In">
 			</form>
+			<a class="forgot_password" href="./forgot_password.php">Forgot Password</a>
 		</div>
 	<h3 class="h3_title"><a href="./sign_up.php">Sign up</a></h3>
 	</div>

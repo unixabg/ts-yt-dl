@@ -9,14 +9,24 @@ if (isset($_POST['first_name'], $_POST['last_name'], $_POST['username'], $_POST[
 		$username = mysqli_real_escape_string($db, $_POST['username']);
 		$password = mysqli_real_escape_string($db, md5($_POST['password']));
 
-		// Check if user exists
-		$check = "SELECT * FROM users WHERE email = \"$email\" AND username = \"$username\";";
+		// First check if username exists
+		$check = "SELECT * FROM users WHERE username = \"$username\";";
 		$check_result = $db->query($check);
 		if ($check_result->num_rows >= 1) {
-			echo "Username already exists. Please try again with another username.";
+			echo "Username of ".$username." already exists. Please try again with another username.";
 			echo "<META http-equiv=\"refresh\" content=\"7;URL=./\">";
 			exit;
 		}
+		// Second only allow one username per email
+		$check = "SELECT * FROM users WHERE email = \"$email\";";
+		$check_result = $db->query($check);
+		if ($check_result->num_rows >= 1) {
+			echo "An email of ".$email." already exists in the system for some user account. Please try again with another email.";
+			echo "<META http-equiv=\"refresh\" content=\"7;URL=./\">";
+			exit;
+		}
+
+		// If we get here add the user
 		$query = "INSERT INTO users (email, password, firstname, lastname, username, authorized) VALUES (\"$email\", \"$password\", \"$first_name\", \"$last_name\", \"$username\", \"0\")";
 		$result = $db->query($query);
 		if ($result) {

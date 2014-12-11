@@ -11,14 +11,15 @@
 	require("./mysql_connect.php");
 	login_check();
 	if (isset($userid)) {
-	$query_username = "SELECT username FROM users WHERE userid = $userid";
+	$query_username = "SELECT firstname, lastname FROM users WHERE userid = $userid";
 	$result = $db->query($query_username);
 	$user = $result->fetch_assoc();
-	$username = $user['username'];
+	$name = $user['firstname']." ".$user['lastname'];
 	echo "<form class=\"search\" action=\"search.php\" method=\"GET\">
 			<input class=\"search_input\" type=\"text\" name=\"search\" placeholder=\"Search\">
 			<input class=\"search_submit\" type=\"submit\" value=\"Search\">
 			</form>
+			<p class=\"full_name\">Hello, $name</p>
 			<a class=\"logout\" href=\"./logout.php\">Logout</a>
 		</div>
 		<nav>

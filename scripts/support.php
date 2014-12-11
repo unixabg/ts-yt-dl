@@ -52,3 +52,5 @@ foreach ($indicesServer as $arg) {
 	}
 }
 echo '</table>' ;
+include("footer.php");
+?>

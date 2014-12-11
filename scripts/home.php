@@ -17,4 +17,5 @@ echo "<body>
 				&nbsp;&nbsp;Audio only: <input type=\"radio\" name=\"dtype\" value=\"audio\">
 			</p>
 		</form>";
+include("footer.php");
 ?>

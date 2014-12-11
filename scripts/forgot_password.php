@@ -17,3 +17,7 @@
 				<input class="login_submit" type="submit" value="Send">
 			</form>
 		</div>
+<?php
+require('../../ts-yt-dl-defaults/ts-yt-dl');
+include("footer.php");
+?>

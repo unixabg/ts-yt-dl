@@ -53,4 +53,5 @@
 				</form>
 			</div>";
 		}
+		include("footer.php");
 		?>

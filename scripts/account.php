@@ -27,4 +27,5 @@ echo "<div id=\"content\">
 			</form>
 		</div>
 	</body>";
+include("footer.php");
 ?>

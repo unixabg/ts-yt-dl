@@ -67,4 +67,5 @@ echo "<body>
 					</div>";
 		}
 echo "</table>";
-
+include("footer.php");
+?>

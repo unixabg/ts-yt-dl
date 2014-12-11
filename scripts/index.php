@@ -11,6 +11,7 @@
 <body>
 	<div id="content">
 	<?php
+	require('../../ts-yt-dl-defaults/ts-yt-dl');
 	echo "<h2 class=\"h2_title\">Sign in</h2>";
 	if (isset($_GET['error'])) {
 		if ($_GET['error'] == "invalid_user") {

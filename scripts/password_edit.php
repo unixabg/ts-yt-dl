@@ -44,4 +44,5 @@ echo "<div class=\"user_info\">
 				</div>
 			</div>
 		</body>";
+include("footer.php");
 ?>

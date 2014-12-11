@@ -33,13 +33,15 @@ if (isset($_POST['old_password']) && isset($_POST['new_password']) && isset($_PO
 		echo "<p class=\"error\">Empty passwords are not allowed.</p>";
 	}
 }
-echo "
-				<form action=\"".$_SERVER['PHP_SELF']."\" method=\"POST\">
-					Old Password:<input type=\"password\" name=\"old_password\"/><br />
-					New Password:<input type=\"password\" name=\"new_password\"/><br />
-					Confirm Password:<input type=\"password\" name=\"confirm_password\"/><br />
-					<input type=\"submit\" value=\"Save Changes\"/>
-				</form>
+echo "<div class=\"user_info\">
+					<h3 class=\"user_header\">Change password</h3>
+					<form action=\"".$_SERVER['PHP_SELF']."\" method=\"POST\">
+						Old Password:<input type=\"password\" name=\"old_password\"/><br />
+						New Password:<input type=\"password\" name=\"new_password\"/><br />
+						Confirm Password:<input type=\"password\" name=\"confirm_password\"/><br />
+						<input type=\"submit\" value=\"Save Changes\"/>
+					</form>
+				</div>
 			</div>
 		</body>";
 ?>

@@ -4,6 +4,7 @@
 	<title>TimeShifter-YouTube-DownLoader</title>
 	<link rel="stylesheet" type="text/css" href="./style/main.css">
 </head>
+<body>
 <div id="banner">
 	<h1 class="logo"><a href="./home.php">TS-YT-DL</a></h1>
 	<?php

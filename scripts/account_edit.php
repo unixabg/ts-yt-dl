@@ -24,14 +24,13 @@ if (isset($_POST['first_name']) && isset($_POST['last_name']) && isset($_POST['e
 	$get_info = "SELECT * FROM users WHERE userid = $userid";
 	$info_result = $db->query($get_info);
 	$info = $info_result->fetch_assoc();
-	echo "<body>
+	echo "
 				<div id=\"content\">
 					<form action=\"".$_SERVER['PHP_SELF']."\" method=\"POST\">
 						<input type=\"text\" name=\"first_name\" placeholder\"First Name\" value=\"".$info['firstname']."\"/>
 						<input type=\"text\" name=\"last_name\" placeholder\"Last Name\" value=\"".$info['lastname']."\"/>
 						<input type=\"submit\" value=\"Save Changes\"/>
 					</form>
-				</div>
-			</body>";
+				</div>";
 }
 ?>

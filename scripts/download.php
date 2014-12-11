@@ -64,8 +64,7 @@ if (!empty($url) && filter_var($url, FILTER_VALIDATE_URL)) {
 		$status = "Error -- Invalid dtype variable passed!";
 		$thumbnail = './error.png';
 	}
-	echo "<body>
-	<div id=\"content\">
+	echo "<div id=\"content\">
 	<img class=\"thumbnail\" src=\"$thumbnail\">
 	<h4>$status</h4>
 	</div>";

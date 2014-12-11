@@ -2,8 +2,7 @@
 include("./header.php");
 require('../../ts-yt-dl-defaults/ts-yt-dl');
 require_once("./mysql_connect.php");
-echo "<body>
-			<div id=\"content\">";
+echo "<div id=\"content\">";
 if (isset($_POST['old_password']) && isset($_POST['new_password']) && isset($_POST['confirm_password'])) {
 	if (!empty($_POST['old_password']) && !empty($_POST['new_password']) && !empty($_POST['confirm_password'])) {
 		$old_password = md5($_POST['old_password']);
@@ -42,7 +41,6 @@ echo "<div class=\"user_info\">
 						<input type=\"submit\" value=\"Save Changes\"/>
 					</form>
 				</div>
-			</div>
-		</body>";
+			</div>";
 include("footer.php");
 ?>

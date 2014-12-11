@@ -11,8 +11,7 @@ echo "<script src=\"./js/admin_page.js\"></script>";
 echo "<link rel=\"stylesheet\" href=\"./style/admin.css\">";
 $log = file_get_contents($admin_log);
 $log = str_replace("\n", "<br />", $log);
-echo "<body>
-	<div id=\"content\">
+echo "<div id=\"content\">
 		<button class=\"log_button\">Show log</button>
 		<div class=\"log\">
 			<h1 class=\"box_header\">Admin Log</h1>

@@ -1,7 +1,6 @@
 <?php
 include("header.php");
-echo "<body>
-	<div id=\"content\">";
+echo "<div id=\"content\">";
 		if (isset($_GET['error'])) {
 			if ($_GET['error'] == "no_url") {
 				echo "<p class=\"error\">Invalid URL</p>";

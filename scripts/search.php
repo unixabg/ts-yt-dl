@@ -3,7 +3,6 @@ include("./header.php");
 require('../../ts-yt-dl-defaults/ts-yt-dl');
 echo "<link rel=\"stylesheet\" href=\"./style/content_list.css\">";
 ?>
-<body>
 	<div id="content">
 	<?php
 	if (isset($_GET['search']) && !empty($_GET['search'])) {
@@ -64,4 +63,5 @@ echo "<link rel=\"stylesheet\" href=\"./style/content_list.css\">";
 		echo "</table>";
 		echo "<br> $count results found.";
 	}
+	include("footer.php");
 	?>

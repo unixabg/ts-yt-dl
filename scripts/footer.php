@@ -1,3 +1,5 @@
+
+	</body>
 	<div id="footer">
 		<?php
 		echo $tag_ver;

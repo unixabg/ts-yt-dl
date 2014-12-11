@@ -8,7 +8,6 @@ echo "<script src=\"./js/status_box.js\"></script>";
 $user_info = "SELECT * FROM users WHERE userid = $userid";
 $result = $db->query($user_info);
 $info = $result->fetch_assoc();
-echo "<body>";
 if (isset($_GET['status']) && !empty($_GET['status'])) {
 	$status = addslashes($_GET['status']);
 	echo "<div class=\"status_box\">
@@ -25,7 +24,6 @@ echo "<div id=\"content\">
 					<h5 class=\"user_h5\"><a href=\"./password_edit.php\">Change Password</h5>
 				</div>
 			</form>
-		</div>
-	</body>";
+		</div>";
 include("footer.php");
 ?>

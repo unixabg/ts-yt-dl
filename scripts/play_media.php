@@ -4,8 +4,7 @@ require('../../ts-yt-dl-defaults/ts-yt-dl');
 $timestamp = $_GET['timestamp'];
 $media = addslashes($_GET['media']);
 $page = $_GET['page'];
-echo "<body>
-		<div id=\"content\">";
+echo "<div id=\"content\">";
 if ($_GET['page'] == "videos") {
 	echo "<div class=\"video_player\">
 					<h1 class=\"header\">$media</h1>
@@ -23,4 +22,5 @@ if ($_GET['page'] == "videos") {
 	<a class=\"download_link\" href=\"./local_download.php?timestamp=$timestamp&media=$media&page=$page\">Download</a>";
 }
 echo "</div>";
+include("footer.php");
 ?>

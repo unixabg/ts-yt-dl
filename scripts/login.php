@@ -20,6 +20,8 @@ if (isset($_POST['username'], $_POST['password'])) {
 		} else {
 			header('Location: ./index.php?error=invalid_user');
 		}
+	} else {
+		header('Location: ./index.php?error=empty_field');
 	}
 }
 ?>

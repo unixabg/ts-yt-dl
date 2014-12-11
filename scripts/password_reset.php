@@ -42,6 +42,5 @@ if (isset($_POST['password']) && isset($_POST['confirm_password']) && !empty($_P
 	}
 } else {
 	echo "Not all data was entered";
-
 }
 ?>

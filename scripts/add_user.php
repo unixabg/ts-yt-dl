@@ -4,6 +4,11 @@ require('../../ts-yt-dl-defaults/ts-yt-dl');
 if (isset($_POST['first_name'], $_POST['last_name'], $_POST['username'], $_POST['email'], $_POST['password'], $_POST['password_confirm']) && $_POST['password'] == $_POST['password_confirm']) {
 	if (!empty($_POST['first_name']) && !empty($_POST['last_name']) && !empty($_POST['username']) && !empty($_POST['email']) && !empty($_POST['password']) && !empty($_POST['password_confirm'])) {
 		$email = mysqli_real_escape_string($db, $_POST['email']);
+		if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+			echo "The email entered was not valied. Please try again with another email.";
+			echo "<META http-equiv=\"refresh\" content=\"7;URL=./\">";
+			exit;
+		}
 		$first_name = mysqli_real_escape_string($db, $_POST['first_name']);
 		$last_name = mysqli_real_escape_string($db, $_POST['last_name']);
 		$username = mysqli_real_escape_string($db, $_POST['username']);

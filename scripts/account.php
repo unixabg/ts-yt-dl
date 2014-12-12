@@ -20,8 +20,8 @@ echo "<div id=\"content\">
 					<h2 class=\"user_header\">User Information</h1>
 					<h4 id=\"name\" class=\"user_h4\" >Name: <div class=\"first_name\">".$info['firstname']." </div><div class=\"last_name\">".$info['lastname']."</div></h4>
 					<h4 class=\"user_h4\"id=\"email\">Email: <div class=\"email\">".$info['email']."</div></h4>
-					<h5 class=\"user_h5\" id=\"edit\"><a class=\"account_edit\" href=\"./account_edit.php\">Edit Information</h5>
-					<h5 class=\"user_h5\"><a href=\"./password_edit.php\">Change Password</h5>
+					<h5 class=\"user_h5\" id=\"edit\"><a class=\"account_edit\" href=\"./account_edit.php\">Edit Information</a></h5>
+					<h5 class=\"user_h5\"><a href=\"./password_edit.php\">Change Password</a></h5>
 				</div>
 			</form>
 		</div>

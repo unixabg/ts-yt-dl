@@ -25,6 +25,5 @@
 			</form>
 		</div>
 	</div>";
-	echo "<h3 class=\"h3_title\"><a href=\"sign_up.php\">Sign up</a></h3>";
 	include("footer.php");
 	?>

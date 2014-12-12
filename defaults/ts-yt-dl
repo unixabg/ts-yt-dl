@@ -4,5 +4,6 @@
 $data_path = '/srv/ts-yt-dl';
 $admin_log = '/var/log/ts-yt-dl/admin.log';
 $tag_ver = '1.0.0';
+$from = 'NO-REPLY@localhost';
 
 ?>

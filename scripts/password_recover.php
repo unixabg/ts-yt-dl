@@ -27,7 +27,6 @@
 					$encypt = md5("$salt".$user_info['userid']);
 					$link = "<a href=\"http://$_SERVER[HTTP_HOST]/password_recover.php?encypt=$encypt\">Reset Password</a>";
 					$email = $user_info['email'];
-					$from = "tsytdl";
 					$subject = "Forgot Password";
 					$headers = "From: $from \r\n";
 					$headers .= "MIME-Version: 1.0\r\n";

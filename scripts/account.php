@@ -24,6 +24,7 @@ echo "<div id=\"content\">
 					<h5 class=\"user_h5\"><a href=\"./password_edit.php\">Change Password</h5>
 				</div>
 			</form>
-		</div>";
+		</div>
+	</div>";
 include("footer.php");
 ?>

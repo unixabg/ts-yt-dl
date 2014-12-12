@@ -63,5 +63,6 @@ echo "<link rel=\"stylesheet\" href=\"./style/content_list.css\">";
 		echo "</table>";
 		echo "<br> $count results found.";
 	}
+	echo "</div>";
 	include("footer.php");
 	?>

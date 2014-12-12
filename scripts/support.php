@@ -52,6 +52,7 @@ foreach ($indicesServer as $arg) {
 		echo '<tr><td>'.$arg.'</td><td>-</td></tr>' ;
 	}
 }
-echo '</table>' ;
+echo '</table>
+</div>';
 include("footer.php");
 ?>

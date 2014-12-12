@@ -16,6 +16,7 @@ echo "<div id=\"content\">";
 				Video: <input lable=\"High\" type=\"radio\" name=\"dtype\" value=\"video\" checked>
 				&nbsp;&nbsp;Audio only: <input type=\"radio\" name=\"dtype\" value=\"audio\">
 			</p>
-		</form>";
+		</form>
+	</div>";
 include("footer.php");
 ?>

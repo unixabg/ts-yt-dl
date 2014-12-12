@@ -43,6 +43,7 @@ echo "<div id=\"content\">
 	}
 echo "</table>";
 echo "		<input class=\"download_submit\" type=\"submit\" value=\"Time Shift to CD (FIXME)\">
-	</form>";
+	</form>
+	</div>";
 include("footer.php");
 ?>

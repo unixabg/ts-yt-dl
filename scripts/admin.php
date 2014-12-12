@@ -65,6 +65,7 @@ echo "<div id=\"content\">
 						<button class=\"cancel\" rowid=\"$x\">Cancel</button>
 					</div>";
 		}
-echo "</table>";
+echo "</table>
+</div>";
 include("footer.php");
 ?>

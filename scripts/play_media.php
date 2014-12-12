@@ -21,6 +21,7 @@ if ($_GET['page'] == "videos") {
 					</audio>
 	<a class=\"download_link\" href=\"./local_download.php?timestamp=$timestamp&media=$media&page=$page\">Download</a>";
 }
-echo "</div>";
+echo "</div>
+</div>";
 include("footer.php");
 ?>

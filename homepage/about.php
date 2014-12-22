@@ -8,7 +8,6 @@ include "header.php";
 			<h4 class="texth4">
 			<ul>
 				<li><a href="COPYING">COPYING</a></li>
-				<li><a href="README">README</a></li>
 				<li><a href="./todo.php">Todo</a></li>
 			</ul>
 			</h4>

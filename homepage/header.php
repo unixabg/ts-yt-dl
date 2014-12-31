@@ -6,14 +6,12 @@
 		</head>
 		<body>
 		<div id="banner">
-			<h1 class="logo"><a href="./">TS-YT-DL</a></h1>
+			<h1 class="logo"><a href="http://ts-yt-dl.org">TS-YT-DL</a></h1>
+			<nav>
+				<ul>
+					<li><a href="about.php">About</a></li>
+					<li><a href="vcs.php">VCS</a></li>
+					<li><a href="index.php">Main</a></li>
+				</ul>
+			</nav>
 		</div>
-
-		<nav>
-			<ul>
-				<li><a class="nava" href="about.php">About</a></li>
-				<li><a class="nava" href="vcs.php">VCS</a></li>
-				<li><a class="nava" href="index.php">Main</a></li>
-			</ul>
-		</nav>
-</head>

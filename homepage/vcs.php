@@ -2,13 +2,11 @@
 include "header.php";
 ?>
 <body>
-	<div id="conholder">
-		<div id="maincon">
-			<h1 class="texth1">Version Control System</h1>
-			<h4 class="texth4">
-				<a href="https://github.com/unixabg/ts-yt-dl">ts-yt-dl</a>
-			</h4>
-		</div>
+	<div id="content">
+		<h1>Version Control System</h1>
+		<ul>
+			<li>The code is available here <a href="https://github.com/unixabg/ts-yt-dl">ts-yt-dl</a>.</li>
+		</ul>
 	</div>
 <?php
 include"footer.php";

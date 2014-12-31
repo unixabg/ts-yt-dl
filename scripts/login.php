@@ -4,12 +4,12 @@ if (isset($_POST['username'], $_POST['password'])) {
 		require_once("./mysql_connect.php");
 		$username = mysqli_real_escape_string($db, $_POST['username']);
 		$password = mysqli_real_escape_string($db, md5($_POST['password']));
-		$query = "SELECT * FROM users WHERE username = \"". $username . "\" AND password = \"". $password. "\" AND (authorized = 1 OR authorized = 2 OR authorized = 10)";
+		$query = "SELECT * FROM users WHERE username = \"". $username . "\" AND password = \"". $password. "\" AND (authorized = 0 OR authorized = 1 OR authorized = 2 OR authorized = 10)";
 		$result = $db->query($query);
 		if ($result->num_rows) {
 			$row = $result->fetch_assoc();
 			if ($row['authorized'] == "0") {
-				header('index.php?error=not_authorized');
+				header('Location: ./index.php?error=not_authorized');
 				exit;
 			}
 			session_start();

@@ -39,6 +39,7 @@ echo "<div class=\"user_info\">
 						New Password:<input type=\"password\" name=\"new_password\"/><br />
 						Confirm Password:<input type=\"password\" name=\"confirm_password\"/><br />
 						<input type=\"submit\" value=\"Save Changes\"/>
+						<h5 class=\"user_h5\"><a href=\"account.php\">Cancel</a></h5>
 					</form>
 				</div>
 			</div>";

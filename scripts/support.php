@@ -52,6 +52,7 @@ foreach ($indicesServer as $arg) {
 		echo '<tr><td>'.$arg.'</td><td>-</td></tr>' ;
 	}
 }
+echo '<tr><td>youtube-dl version</td><td>'. exec("youtube-dl --version") .'</td></tr>' ;
 echo '</table>
 </div>';
 include("footer.php");

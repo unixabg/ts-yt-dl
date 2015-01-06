@@ -32,7 +32,11 @@ echo "<div id=\"content\">
 						echo "<tr>";
 							echo "<td><input type=\"checkbox\" name=\"".$timestamp[$t]."\" value=\".".$timestamp[$t]."\"></td>";
 							echo "<td class=\"medium_cell\">".$timestamp[$t]."</td>";
-							echo "<td class=\"large_cell\"><a href=\"./play_media.php?timestamp=".$timestamp[$t]."&media=".$audio[$a]."&page=audios\"><h4 class=\"media_title\">&#9658 ".$audio[$a]."</h4></a></td>";
+							if ($ext == 'part') {
+								echo "<td class=\"large_cell\"><h4 class=\"media_title\">Processing</h4></td>";
+							} else {
+								echo "<td class=\"large_cell\"><a href=\"./play_media.php?timestamp=".$timestamp[$t]."&media=".$audio[$a]."&page=audios\"><h4 class=\"media_title\">&#9658 ".$audio[$a]."</h4></a></td>";
+							}
 							echo "<td class=\"medium_cell\">". number_format(filesize("$data_path/$userid/audios/".$timestamp[$t]."/".$audio[$a]) / 1024, 2) ." KB</td>";
 							echo "<td class=\"small_cell\"><a onclick=\"return confirm('Are you sure you to delete this?')\" href=\"./delete.php?ts_id=".$timestamp[$t]."&media_type=audios\" class=\"saltire\" > Delete</a></td>";
 						echo "</tr>";

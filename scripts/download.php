@@ -10,6 +10,7 @@ if (!empty($url) && filter_var($url, FILTER_VALIDATE_URL)) {
 	// write to file
 	$ip = $_SERVER['REMOTE_ADDR'];
 	$timestamp = date('YmdHis');
+	$date = date("Y-m-d H:i:s");
 	if ($dtype == "video") {
 		//download video
 		if ( mkdir("$data_path/$userid/videos/$timestamp", 0755, true) ) {
@@ -24,7 +25,6 @@ if (!empty($url) && filter_var($url, FILTER_VALIDATE_URL)) {
 				file_put_contents("$data_path/$userid/videos/$timestamp/log", "Timestamp = $timestamp\nRemote IP = $ip\nDownload Type = $dtype\nVideo URL = $url\n");
 				exec("nohup youtube-dl --write-thumbnail -o \"$data_path/$userid/videos/$timestamp/$title.mp4\" $url >> \"$data_path/$userid/videos/$timestamp/log\" &");
 				$status = $status."\"".$title.".mp4\"";
-				$date = date("Y-m-d H:i:s");
 				file_put_contents("$data_path/$userid/user.log", "[$date]\tDownloaded video \"$url\".\n", FILE_APPEND);
 			} else {
 				// No info in $title.

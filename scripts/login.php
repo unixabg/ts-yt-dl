@@ -14,8 +14,10 @@ if (isset($_POST['username'], $_POST['password'])) {
 			}
 			session_start();
 			$_SESSION['username'] = $username;
-			$_SESSION['userid'] = $row['userid'];;
+			$_SESSION['userid'] = $row['userid'];
 			$_SESSION['authorized'] = $row['authorized'];
+			$date = date("Y-m-d H:i:s");
+			file_put_contents("/srv/ts-yt-dl/".$row['userid']."/user.log", "[$date]\tUser logged into account.\n", FILE_APPEND);
 			header('Location: ./home.php');
 		} else {
 			header('Location: ./index.php?error=invalid_user');

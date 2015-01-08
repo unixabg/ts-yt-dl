@@ -26,6 +26,7 @@ echo "<div id=\"content\">
 				<th class=\"medium_cell\">Username</th>
 				<th class=\"small_cell\">Status</th>
 				<th class=\"\">Test</th>
+				<th class=\"\">Log</th>
 			</tr>";
 		$query = "SELECT * FROM users WHERE userid != $userid";
 		$result = $db->query($query);
@@ -46,6 +47,7 @@ echo "<div id=\"content\">
 							<td class=\"medium_cell\">".$row['username']."</td>
 							<td class=\"small_cell\"><div class=\"status\" style='background:$color;'></div>".$row['authorized']."</td>
 							<td class=\"\"><button class=\"user_edit\" rowid=\"$x\">Edit User</button></td>
+							<td class=\"\"><a class=\"user_log_link\" href=\"user_log.php?userid=".$row['userid']."\">User Log</a></td>
 					</tr>
 					<div class=\"user_box\" rowid=\"$x\">
 						<h1 class=\"box_header\">Edit User</h1>
@@ -66,6 +68,12 @@ echo "<div id=\"content\">
 					</div>";
 		}
 echo "</table>
+	<div class=\"user_log\">
+		<h1 class=\"box_header\">User Log</h1>
+		<h2 class=\"cancel_log\">X</h2>
+		<div class=\"user_log_content\">
+		</div>
+	</div>
 </div>";
 include("footer.php");
 ?>

@@ -114,7 +114,7 @@ button:hover, input[type=submit]:hover {
 .log_button:hover {
 	cursor: pointer;
 }
-.log {
+.user_log, .log {
 	background: white;
 	position: fixed;
 	margin: 10em auto;
@@ -143,4 +143,8 @@ button:hover, input[type=submit]:hover {
 .cancel_log:hover {
 	cursor: pointer;
 	color: #A4A4A4;
+}
+.user_log_content {
+	height: 300px;
+	overflow-y: auto;
 }

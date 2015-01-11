@@ -8,10 +8,8 @@ $timestamp= scandir("$data_path/$userid/audios/");
 $timestamp_count = count($timestamp);
 echo "<div id=\"content\">
 		<h1 class=\"header\">Audios</h1>
-		<form action=\"./ts_dvd.php\" method=\"POST\">
 			<table id=\"media_table\">
 				<tr>
-					<th></th>
 					<th class=\"medium_cell\"><h4>TS Ref. Number</h4></th>
 					<th class=\"large_cell\"><h4>Title</h4></th>
 					<th class=\"medium_cell\"><h4>File Size</h4></th>
@@ -30,7 +28,6 @@ echo "<div id=\"content\">
 					// Exclude the image and log file
 					if ($ext != 'jpg' && $audio[$a] != 'log') {
 						echo "<tr>";
-							echo "<td><input type=\"checkbox\" name=\"".$timestamp[$t]."\" value=\".".$timestamp[$t]."\"></td>";
 							echo "<td class=\"medium_cell\">".$timestamp[$t]."</td>";
 							if ($ext == 'part') {
 								echo "<td class=\"large_cell\"><h4 class=\"media_title\">Processing</h4></td>";
@@ -45,9 +42,7 @@ echo "<div id=\"content\">
 			}
 		}
 	}
-echo "</table>";
-echo "		<input class=\"download_submit\" type=\"submit\" value=\"Time Shift to CD (FIXME)\">
-	</form>
+echo "</table>
 	</div>";
 include("footer.php");
 ?>

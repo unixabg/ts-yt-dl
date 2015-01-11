@@ -61,6 +61,7 @@ upgrade:
 	@echo "Upgrading ts-yt-dl ..."
 
 	# Updating html executables
+	rm -rf $(DESTDIR)/var/www/html/ts-yt-dl/*
 	cp -a scripts/* $(DESTDIR)/var/www/html/ts-yt-dl
 	chown -R www-data:www-data $(DESTDIR)/var/www/html/ts-yt-dl
 

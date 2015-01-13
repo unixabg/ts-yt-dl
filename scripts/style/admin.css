@@ -27,8 +27,7 @@ td {
 	text-align: center;
 }
 .medium_cell {
-	text-align: left;
-	width: 12em;
+	text-align: left; width: 12em;
 }
 .user_box {
 	margin: 18em auto;
@@ -126,18 +125,18 @@ button:hover, input[type=submit]:hover {
 	max-width: 1000px;
 	display: none;
 	z-index: 100;
+	height: 355px;
 	box-shadow: 0px 2px 2px rgba(0, 0, 0, .9);
 }
 .log p {
 	padding: 0.5em;
-	height: 475px;
+	height: 275px;
 	overflow-y: auto;
 	background: white;
 }
 .cancel_log {
-	position: relative;
-	top: -2.5em;
-	float: right;
+	position: absolute;
+	top: -.5em;
 	right: 0.5em;
 }
 .cancel_log:hover {

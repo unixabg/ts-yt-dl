@@ -2,6 +2,7 @@
 include("./header.php");
 require('../../ts-yt-dl-defaults/ts-yt-dl');
 require_once("./mysql_connect.php");
+echo"<link rel=\"stylesheet\" type=\"text/css\" href=\"./style/admin.css\">";
 echo "<script src=\"./js/jquery-2.1.1.min.js\"></script>";
 echo "<script src=\"./js/account.js\"></script>";
 echo "<script src=\"./js/status_box.js\"></script>";
@@ -15,6 +16,9 @@ if (isset($_GET['status']) && !empty($_GET['status'])) {
 			</div>";
 }
 echo "<div id=\"content\">
+				<div class=\"log_button\">
+					<a class=\"user_log_link\" href=\"./user_log.php?userid=".$userid."\">View Log</a>
+				</div>
 				<form action=\"./account_edit.php\" method=\"POST\">
 				<div class=\"user_info\">
 					<h2 class=\"user_header\">User Information</h1>
@@ -26,5 +30,12 @@ echo "<div id=\"content\">
 			</form>
 		</div>
 	</div>";
+echo "<div class=\"user_log_box\">
+		<h1 class=\"box_header\">User Log</h1>
+		<h2 class=\"cancel_log\">X</h2>
+		<div class=\"user_log_content\">
+		</div>
+	</div>";
+
 include("footer.php");
 ?>

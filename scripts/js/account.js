@@ -14,4 +14,13 @@ $(document).ready(function() {
 		$(".user_h5").css("top", "0px");
 		return false;
 	});
+	$(".user_log_link").click(function() {
+		$(".user_log_box").show();
+		var link = $(this).attr("href");
+		$(".user_log_content").load(link);
+		return false;
+	});
+	$(".cancel_log").click(function() {
+		$(".user_log_box").hide();
+	});
 });

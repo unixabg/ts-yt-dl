@@ -21,6 +21,10 @@
 				$check_email = "SELECT * FROM users WHERE email = \"$email\"";
 				$email_rs = $db->query($check_email);
 				$user_info = $email_rs->fetch_assoc();
+				if (strtolower($user_info['username']) == "demo") {
+					echo "This account cannot be altered.";
+					exit;
+				}
 				if ($user_info >= 1) {
 					$salt = $user_info['password'];
 					// We use a combination of the current password and userid to send a key to thier email

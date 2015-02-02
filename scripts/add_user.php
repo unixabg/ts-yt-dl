@@ -13,12 +13,17 @@ if (isset($_POST['first_name'], $_POST['last_name'], $_POST['username'], $_POST[
 		$last_name = mysqli_real_escape_string($db, $_POST['last_name']);
 		$username = mysqli_real_escape_string($db, $_POST['username']);
 		$password = mysqli_real_escape_string($db, md5($_POST['password']));
-			// If this is the first user and setting up the account
-			$scan_users = "SELECT username as total FROM users";
-			$result = $db->query($scan_users);
-			if ($result->num_rows == 0) {
-				$status = 10;
-			}
+		if ($authorize != "true") {
+			$status = 1;
+		} else {
+			$status = 0;
+		}
+		// If this is the first user and setting up the account
+		$scan_users = "SELECT username as total FROM users";
+		$result = $db->query($scan_users);
+		if ($result->num_rows == 0) {
+			$status = 10;
+		}
 
 		// First check if username exists
 		$check = "SELECT * FROM users WHERE username = \"$username\";";

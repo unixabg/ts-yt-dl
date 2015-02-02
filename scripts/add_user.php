@@ -13,6 +13,12 @@ if (isset($_POST['first_name'], $_POST['last_name'], $_POST['username'], $_POST[
 		$last_name = mysqli_real_escape_string($db, $_POST['last_name']);
 		$username = mysqli_real_escape_string($db, $_POST['username']);
 		$password = mysqli_real_escape_string($db, md5($_POST['password']));
+			// If this is the first user and setting up the account
+			$scan_users = "SELECT username as total FROM users";
+			$result = $db->query($scan_users);
+			if ($result->num_rows == 0) {
+				$status = 10;
+			}
 
 		// First check if username exists
 		$check = "SELECT * FROM users WHERE username = \"$username\";";
@@ -32,7 +38,7 @@ if (isset($_POST['first_name'], $_POST['last_name'], $_POST['username'], $_POST[
 		}
 
 		// If we get here add the user
-		$query = "INSERT INTO users (email, password, firstname, lastname, username, authorized) VALUES (\"$email\", \"$password\", \"$first_name\", \"$last_name\", \"$username\", \"0\")";
+		$query = "INSERT INTO users (email, password, firstname, lastname, username, authorized) VALUES (\"$email\", \"$password\", \"$first_name\", \"$last_name\", \"$username\", \"$status\")";
 		$result = $db->query($query);
 		if ($result) {
 			$get_id = "SELECT userid FROM users WHERE username = \"$username\"";
@@ -45,7 +51,27 @@ if (isset($_POST['first_name'], $_POST['last_name'], $_POST['username'], $_POST[
 				mkdir("$data_path/".$user_id['userid']."/", 0755, true);
 			}
 			file_put_contents($data_path."/".$user_id['userid']."/user.log", $message);
-			header('Location: ./test.php');
+			// If this is the setup account or authorization is turned off send the user to the home page
+			if ($status == 10 || $status == 1) {
+				if (isset($_POST['authorize'])) {
+					$auth = $_POST['authorize'];
+					if ($auth == 'true') {
+							// This is where we will be able to disable and enable user authorization  for admin
+						}
+				}
+				$query = "SELECT * FROM users WHERE username = \"$username\"";
+				$result = $db->query($query);
+				$row = $result->fetch_assoc();
+				session_start();
+				$_SESSION['username'] = $username;
+				$_SESSION['userid'] = $row['userid'];
+				$_SESSION['authorized'] = $row['authorized'];
+				$date = date("Y-m-d H:i:s");
+				file_put_contents("/srv/ts-yt-dl/".$row['userid']."/user.log", "[$date]\tUser logged into account.\n", FILE_APPEND);
+				header('Location: ./home.php');
+			} else {
+				header('Location: ./test.php');
+			}
 		} else {
 			echo "Error adding account information! Please try again.";
 			echo "<META http-equiv=\"refresh\" content=\"7;URL=./\">";

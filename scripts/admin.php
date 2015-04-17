@@ -9,6 +9,7 @@ require("./mysql_connect.php");
 echo "<script src=\"./js/jquery-2.1.1.min.js\"></script>";
 echo "<script src=\"./js/admin_page.js\"></script>";
 echo "<link rel=\"stylesheet\" href=\"./style/admin.css\">";
+echo "<h1>Test</h1>";
 $log = file_get_contents($admin_log);
 $log = str_replace("\n", "<br />", $log);
 echo "<div id=\"content\">
@@ -34,12 +35,16 @@ echo "<div id=\"content\">
 		for ($x = 0; $x < $num; $x++) {
 			$row = $result->fetch_assoc();
 			if ($row['authorized'] == 0) {
+				$checked = 0;
 				$color = "#F4FA58";
 			} elseif ($row['authorized'] == 1) {
+				$checked = 1;
 				$color = "#01DF01";
 			} elseif ($row['authorized'] == 5) {
+				$checked = 5;
 				$color = "#FE2E2E";
 			} elseif ($row['authorized'] == 10) {
+				$checked = 10;
 				$color = "#000000";
 			}
 			echo "<tr>
@@ -55,12 +60,29 @@ echo "<div id=\"content\">
 						<form action=\"./user_edit.php\" method=\"POST\">
 							<input type=\"hidden\" value=\"".$row['userid']."\" name=\"userid\">
 							Username:<input type=\"text\" value=\"".$row['username']."\" name=\"username\"\>
-							<select name=\"status\" class=\"drop_down\">
-								<option value=\"0\">Pending</option>
+							<select name=\"status\" class=\"drop_down\">";
+							if ($checked == 0) {
+								echo "<option value=\"0\" selected>Pending</option>
 								<option value=\"1\">Approve</option>
 								<option value=\"5\">Lock</option>
-								<option value=\"10\">Admin</option>
-							</select>
+								<option value=\"10\">Admin</option>";
+							} elseif ($checked == 1) {
+								echo "<option value=\"0\">Pending</option>
+								<option value=\"1\" selected>Approve</option>
+								<option value=\"5\">Lock</option>
+								<option value=\"10\">Admin</option>";
+							} elseif ($checked == 5) {
+								echo "<option value=\"0\">Pending</option>
+								<option value=\"1\">Approve</option>
+								<option value=\"5\" selected>Lock</option>
+								<option value=\"10\">Admin</option>";
+							} elseif ($checked == 10) {
+								echo "<option value=\"0\">Pending</option>
+								<option value=\"1\">Approve</option>
+								<option value=\"5\">Lock</option>
+								<option value=\"10\" selected>Admin</option>";
+							}
+							echo "</select>
 							<input type=\"submit\" name=\"action\" onclick=\"return confirm('Are you sure you want to delete the users and all contents?')\" class=\"delete\" value=\"Delete\"/>
 							<input type=\"submit\" name=\"action\" class=\"submit\" value=\"Save Changes\">
 						</form>

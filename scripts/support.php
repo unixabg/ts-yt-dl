@@ -45,6 +45,11 @@ $indicesServer = array('PHP_SELF',
 echo "<div id=\"content\">
 				<h1 class=\"header\">Support</h1>";
 echo '<table cellpadding="10">' ;
+$df = disk_total_space('/')/1000000;
+$df = number_format($df, 2, '.', '');
+$load = sys_getloadavg();
+echo "<tr><td>Available Disk Space:</td><td>$df Megabytes</td></tr>";
+echo "<tr><td>System Average Load:</td><td>$load[0], $load[1], $load[2]</td></tr>";
 foreach ($indicesServer as $arg) {
 	if (isset($_SERVER[$arg])) {
 		echo '<tr><td>'.$arg.'</td><td>' . $_SERVER[$arg] . '</td></tr>' ;

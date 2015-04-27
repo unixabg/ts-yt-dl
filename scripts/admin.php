@@ -26,7 +26,8 @@ echo "<div id=\"content\">
 				<th class=\"medium_cell\">Username</th>
 				<th class=\"small_cell\">Status</th>
 				<th class=\"\">Email</th>
-				<th class=\"\">Log</th>
+				<th class=\"\"></th>
+				<th class=\"\"></th>
 			</tr>";
 		$query = "SELECT * FROM users WHERE userid != $userid";
 		$result = $db->query($query);

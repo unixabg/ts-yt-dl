@@ -25,7 +25,7 @@ if (!empty($url) && filter_var($url, FILTER_VALIDATE_URL)) {
 				file_put_contents("$data_path/$userid/videos/$timestamp/log", "Timestamp = $timestamp\nRemote IP = $ip\nDownload Type = $dtype\nVideo URL = $url\n");
 				exec("nohup youtube-dl --write-thumbnail -o \"$data_path/$userid/videos/$timestamp/$title.mp4\" $url >> \"$data_path/$userid/videos/$timestamp/log\" &");
 				$status = $status."\"".$title.".mp4\"";
-				file_put_contents("$data_path/$userid/user.log", "[$date]\tDownloaded video \"$url\".\n", FILE_APPEND);
+				file_put_contents("$data_path/$userid/user.log", "[$date]\tDownloaded video \"$url\" of title \"$title\".\n", FILE_APPEND);
 			} else {
 				// No info in $title.
 				file_put_contents("$data_path/$userid/videos/$timestamp/log", "Timestamp = $timestamp\nRemote IP = $ip\nDownload Type = $dtype\nVideo URL = $url\nError -- No title downloaded!!\n");
@@ -49,7 +49,7 @@ if (!empty($url) && filter_var($url, FILTER_VALIDATE_URL)) {
 				file_put_contents("$data_path/$userid/audios/$timestamp/log", "Timestamp = $timestamp\nRemote IP = $ip\nDownload Type = $dtype\nVideo URL = $url\n");
 				exec("nohup youtube-dl --extract-audio --audio-format mp3 --write-thumbnail -o \"$data_path/$userid/audios/$timestamp/$title.mp4\" $url >> \"$data_path/$userid/audios/$timestamp/log\" &");
 				$status = $status."\"".$title.".mp3\"";
-				file_put_contents("$data_path/$userid/user.log", "[$date]\tDownloaded audio \"$url\".\n", FILE_APPEND);
+				file_put_contents("$data_path/$userid/user.log", "[$date]\tDownloaded audio \"$url\" of title \"$title\".\n", FILE_APPEND);
 			} else {
 				// No info in $title.
 				file_put_contents("$data_path/$userid/audios/$timestamp/log", "Timestamp = $timestamp\nRemote IP = $ip\nDownload Type = $dtype\nVideo URL = $url\nError -- No title downloaded!!\n");

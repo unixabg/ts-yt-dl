@@ -9,7 +9,6 @@ require("./mysql_connect.php");
 echo "<script src=\"./js/jquery-2.1.1.min.js\"></script>";
 echo "<script src=\"./js/admin_page.js\"></script>";
 echo "<link rel=\"stylesheet\" href=\"./style/admin.css\">";
-echo "<h1>Test</h1>";
 $log = file_get_contents($admin_log);
 $log = str_replace("\n", "<br />", $log);
 echo "<div id=\"content\">
@@ -26,6 +25,7 @@ echo "<div id=\"content\">
 				<th class=\"small_cell\">User Id</th>
 				<th class=\"medium_cell\">Username</th>
 				<th class=\"small_cell\">Status</th>
+				<th class=\"\">Email</th>
 				<th class=\"\">Test</th>
 				<th class=\"\">Log</th>
 			</tr>";
@@ -51,7 +51,8 @@ echo "<div id=\"content\">
 							<td class=\"small_cell\">".$row['userid']."</td>
 							<td class=\"medium_cell\">".$row['username']."</td>
 							<td class=\"small_cell\"><div class=\"status\" style='background:$color;'></div>".$row['authorized']."</td>
-							<td class=\"\"><button class=\"user_edit\" rowid=\"$x\">Edit User</button></td>
+							<td></button>".$row['email']."</td>
+							<td class=\"\"><button class=\"user_edit\" rowid=\"$x\">Edit User</td>
 							<td class=\"\"><a class=\"user_log_link\" href=\"user_log.php?userid=".$row['userid']."\">User Log</a></td>
 					</tr>
 					<div class=\"user_box\" rowid=\"$x\">

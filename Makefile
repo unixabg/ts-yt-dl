@@ -77,7 +77,6 @@ uninstall:
 
 	# Uninstalling html executables
 	rm -rf $(DESTDIR)/var/www/html/ts-yt-dl
-	rm -f $(DESTDIR)/var/www/mysql_security.php
 
 	# Uninstalling defaults
 	rm -rf $(DESTDIR)/var/www/ts-yt-dl-defaults

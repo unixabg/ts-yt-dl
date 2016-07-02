@@ -45,6 +45,7 @@ install:
 
 	# Installing defaults
 	mkdir -p $(DESTDIR)/var/www/ts-yt-dl-defaults
+	install -D -m 0600 defaults/tsytdl.sql $(DESTDIR)/var/www/ts-yt-dl-defaults
 	install -D -m 0600 defaults/ts-yt-dl $(DESTDIR)/var/www/ts-yt-dl-defaults
 	install -D -m 0600 defaults/mysql_security $(DESTDIR)/var/www/ts-yt-dl-defaults
 	chown -R www-data:www-data $(DESTDIR)/var/www/ts-yt-dl-defaults
@@ -66,6 +67,7 @@ upgrade:
 	chown -R www-data:www-data $(DESTDIR)/var/www/html/ts-yt-dl
 
 	# Diff defaults
+	diff defaults/tsytdl.sql $(DESTDIR)/var/www/ts-yt-dl-defaults || exit 0
 	diff defaults/ts-yt-dl $(DESTDIR)/var/www/ts-yt-dl-defaults || exit 0
 	diff defaults/mysql_security $(DESTDIR)/var/www/ts-yt-dl-defaults || exit 0
 

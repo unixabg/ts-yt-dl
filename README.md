@@ -26,7 +26,7 @@
 
 #############################################################################
 ### Adjust the security password of 'mypass' before source of tsytdl.sql.
-`vim /var/www/html/ts-yt-dl/tsytdl.sql`
+`vim /var/www/ts-yt-dl-defaults/tsytdl.sql`
 
 #### Match the password on the mysql_security file.
 `vim /var/www/ts-yt-dl-defaults/mysql_security`
@@ -36,4 +36,4 @@
 `mysql -u root -p`
 
 #### Source in the tsytdl.sql file.
-`source /var/www/html/ts-yt-dl/tsytdl.sql`
+`source /var/www/ts-yt-dl-defaults/tsytdl.sql`

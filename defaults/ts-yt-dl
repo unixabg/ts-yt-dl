@@ -2,6 +2,7 @@
 
 // Set some default variables.
 $data_path = '/srv/ts-yt-dl';
+$public_path = '/srv/ts-yt-dl/public';
 $admin_log = '/var/log/ts-yt-dl/admin.log';
 $tag_ver = '1.0.1';
 $from = 'NO-REPLY@localhost';

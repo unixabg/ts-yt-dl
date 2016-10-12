@@ -1,6 +1,5 @@
 <?php
 include("header.php");
-require('../../ts-yt-dl-defaults/ts-yt-dl');
 $indicesServer = array('PHP_SELF',
 'argv',
 'argc',

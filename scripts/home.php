@@ -1,6 +1,5 @@
 <?php
 include("header.php");
-require('../../ts-yt-dl-defaults/ts-yt-dl');
 echo "<div id=\"content\">";
 		if (isset($_GET['error'])) {
 			if ($_GET['error'] == "no_url") {

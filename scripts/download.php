@@ -1,6 +1,5 @@
 <?php
 require("header.php");
-require('../../ts-yt-dl-defaults/ts-yt-dl');
 require_once('../../ts-yt-dl-defaults/mysql_security');
 $userid = $_SESSION['userid'];
 $url = addslashes($_POST['url']);

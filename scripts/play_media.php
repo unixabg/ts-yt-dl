@@ -1,6 +1,5 @@
 <?php
 include("./header.php");
-require('../../ts-yt-dl-defaults/ts-yt-dl');
 $timestamp = $_GET['timestamp'];
 $media = addslashes($_GET['media']);
 $page = $_GET['page'];

@@ -8,6 +8,7 @@
 <div id="banner">
 	<h1 class="logo"><a href="./home.php">TS-YT-DL</a></h1>
 	<?php
+	require('../../ts-yt-dl-defaults/ts-yt-dl');
 	require_once("./functions.php");
 	require("./mysql_connect.php");
 	login_check();

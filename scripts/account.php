@@ -1,6 +1,5 @@
 <?php
 include("./header.php");
-require('../../ts-yt-dl-defaults/ts-yt-dl');
 require_once("./mysql_connect.php");
 echo"<link rel=\"stylesheet\" type=\"text/css\" href=\"./style/admin.css\">";
 echo "<script src=\"./js/jquery-2.1.1.min.js\"></script>";

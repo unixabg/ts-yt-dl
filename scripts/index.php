@@ -15,7 +15,6 @@
 	if (isset($_SESSION['username']) && !empty($_SESSION['username'])) {
 		header("Location: ./home.php");
 	}
-	require('../../ts-yt-dl-defaults/ts-yt-dl');
 	require_once('./mysql_connect.php');
 	$scan_users = "SELECT username as total FROM users";
 	$result = $db->query($scan_users);

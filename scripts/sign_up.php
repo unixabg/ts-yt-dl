@@ -11,7 +11,6 @@
 <body>
 	<div id="content">
 	<?php
-	require('../../ts-yt-dl-defaults/ts-yt-dl');
 	echo "<h2 class=\"h2_title\">Sign Up</h2>";
 	echo "<div class=\"login_box\">
 			<form action=\"add_user.php\" method=\"POST\">

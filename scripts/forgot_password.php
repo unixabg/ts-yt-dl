@@ -19,6 +19,5 @@
 		</div>
 	</div>
 <?php
-require('../../ts-yt-dl-defaults/ts-yt-dl');
 include("footer.php");
 ?>

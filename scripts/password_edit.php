@@ -1,6 +1,5 @@
 <?php
 include("./header.php");
-require('../../ts-yt-dl-defaults/ts-yt-dl');
 require_once("./mysql_connect.php");
 echo "<div id=\"content\">";
 if (isset($_POST['old_password']) && isset($_POST['new_password']) && isset($_POST['confirm_password'])) {

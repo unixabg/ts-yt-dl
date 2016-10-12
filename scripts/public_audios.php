@@ -1,6 +1,5 @@
 <?php
 include("./header.php");
-require('../../ts-yt-dl-defaults/ts-yt-dl');
 echo "<link rel=\"stylesheet\" href=\"./style/content_list.css\">";
 $userid = $_SESSION['userid'];
 // Scan the user's audio folder for timestamp directories

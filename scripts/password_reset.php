@@ -15,7 +15,6 @@
 if (isset($_POST['password']) && isset($_POST['confirm_password']) && !empty($_POST['password']) && !empty($_POST['confirm_password'])) {
 	require_once("./functions.php");
 	require("./mysql_connect.php");
-	require('../../ts-yt-dl-defaults/ts-yt-dl');
 	$encypt = addslashes($_POST['hash']);
 	$password = md5($_POST['password']);
 	$pass_confirm = md5($_POST['password']);

@@ -1,6 +1,5 @@
 <?php
 include("./header.php");
-require('../../ts-yt-dl-defaults/ts-yt-dl');
 if ($_SESSION['authorized'] != 10) {
 	header('Location: ./home.php');
 	exit;

@@ -12,7 +12,6 @@
 	<div id="content">
 	<?php
 	require_once('./mysql_connect.php');
-	require('../../ts-yt-dl-defaults/ts-yt-dl');
 	$scan_users = "SELECT username as total FROM users";
 	$result = $db->query($scan_users);
 	if ($result->num_rows != 0) {

@@ -1,6 +1,5 @@
 <?php
 require_once("./functions.php");
-require('../../ts-yt-dl-defaults/ts-yt-dl');
 login_check();
 // Check if ts_id is set
 if (isset($_GET['ts_id'])) {

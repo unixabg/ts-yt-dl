@@ -13,7 +13,6 @@
 		<h2 class="h2_title">Recover Password</h2>
 		<?php
 		require_once("./functions.php");
-		require('../../ts-yt-dl-defaults/ts-yt-dl');
 		require("./mysql_connect.php");
 		if (isset($_POST['email']) && !empty($_POST['email'])) {
 			$email = $_POST['email'];

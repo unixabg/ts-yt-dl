@@ -6,7 +6,6 @@ if ($_SESSION['authorized'] != 10) {
 	exit;
 }
 require("./mysql_connect.php");
-require('../../ts-yt-dl-defaults/ts-yt-dl');
 if (isset($_POST['action']) && isset($_POST['userid'])) {
 	$date = date("Y-m-d H:i:s");
 	$action =  $_POST['action'];

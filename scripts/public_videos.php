@@ -32,7 +32,7 @@ echo "<body>
 							if ($ext == 'part') {
 								echo "<td class=\"large_cell\"><h4 class=\"media_title\">Processing</h4></td>";
 							} else {
-								echo "<td class=\"large_cell\"><a href=\"./play_media.php?timestamp=".$timestamp[$t]."&media=".$video[$v]."&page=videos\"><h4 class=\"media_title\">&#9658 ".$video[$v]."</h4></a></td>";
+								echo "<td class=\"large_cell\"><a href=\"./play_media.php?timestamp=".$timestamp[$t]."&media=".$video[$v]."&page=videos&public=true\"><h4 class=\"media_title\">&#9658 ".$video[$v]."</h4></a></td>";
 							}
 							echo "<td class=\"medium_cell\">". number_format(filesize("$public_path/videos/".$timestamp[$t]."/".$video[$v]) / 1024, 2) ." KB</td>";
 						echo "</tr>";

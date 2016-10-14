@@ -39,6 +39,9 @@ echo "<div id=\"content\">
 			} elseif ($row['authorized'] == 1) {
 				$checked = 1;
 				$color = "#01DF01";
+			} elseif ($row['authorized'] == 3) {
+				$checked = 3;
+				$color = "#D4AF37";
 			} elseif ($row['authorized'] == 5) {
 				$checked = 5;
 				$color = "#FE2E2E";
@@ -64,21 +67,31 @@ echo "<div id=\"content\">
 							if ($checked == 0) {
 								echo "<option value=\"0\" selected>Pending</option>
 								<option value=\"1\">Approve</option>
+								<option value=\"3\">Public Uploader</option>
 								<option value=\"5\">Lock</option>
 								<option value=\"10\">Admin</option>";
 							} elseif ($checked == 1) {
 								echo "<option value=\"0\">Pending</option>
 								<option value=\"1\" selected>Approve</option>
+								<option value=\"3\">Public Uploader</option>
 								<option value=\"5\">Lock</option>
+								<option value=\"10\">Admin</option>";
+							} elseif ($checked == 3) {
+								echo "<option value=\"0\">Pending</option>
+								<option value=\"1\">Approve</option>
+								<option value=\"3\">Public Uploader</option>
+								<option value=\"5\" selected>Lock</option>
 								<option value=\"10\">Admin</option>";
 							} elseif ($checked == 5) {
 								echo "<option value=\"0\">Pending</option>
 								<option value=\"1\">Approve</option>
+								<option value=\"3\">Public Uploader</option>
 								<option value=\"5\" selected>Lock</option>
 								<option value=\"10\">Admin</option>";
 							} elseif ($checked == 10) {
 								echo "<option value=\"0\">Pending</option>
 								<option value=\"1\">Approve</option>
+								<option value=\"3\">Public Uploader</option>
 								<option value=\"5\">Lock</option>
 								<option value=\"10\" selected>Admin</option>";
 							}

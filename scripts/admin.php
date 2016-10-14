@@ -79,8 +79,8 @@ echo "<div id=\"content\">
 							} elseif ($checked == 3) {
 								echo "<option value=\"0\">Pending</option>
 								<option value=\"1\">Approve</option>
-								<option value=\"3\">Public Uploader</option>
-								<option value=\"5\" selected>Lock</option>
+								<option value=\"3\" selected>Public Uploader</option>
+								<option value=\"5\">Lock</option>
 								<option value=\"10\">Admin</option>";
 							} elseif ($checked == 5) {
 								echo "<option value=\"0\">Pending</option>

@@ -13,8 +13,12 @@ echo "<div id=\"content\">";
 			</div>
 			<p class=\"radio_input\">
 				Video: <input lable=\"High\" type=\"radio\" name=\"dtype\" value=\"video\" checked>
-				&nbsp;&nbsp;Audio only: <input type=\"radio\" name=\"dtype\" value=\"audio\">
-			</p>
+				&nbsp;&nbsp;Audio only: <input type=\"radio\" name=\"dtype\" value=\"audio\"><br>";
+				if ($_SESSION['authorized'] == 3) {
+					echo "&nbsp;&nbsp; Public Video: <input type=\"radio\" name=\"dtype\" value=\"public_video\">
+					&nbsp;&nbsp; Public Audio: <input type=\"radio\" name=\"dtype\" value=\"public_audio\">";
+				}
+			echo "</p>
 		</form>
 	</div>";
 include("footer.php");

@@ -41,8 +41,7 @@
 #############################################################################
 ### Public Audios and Videos option.
 
-#### By defualt a public folder will not be created. However a public_path is
-set in the defualts as shown below:
+#### By defualt a public folder will not be created. However a public_path is set in the defualts as shown below:
 
 `$public_path = '/srv/ts-yt-dl/public';`
 

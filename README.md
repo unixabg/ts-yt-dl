@@ -37,3 +37,17 @@
 
 #### Source in the tsytdl.sql file.
 `source /var/www/ts-yt-dl-defaults/tsytdl.sql`
+
+#############################################################################
+### Public Audios and Videos option.
+
+#### By defualt a public folder will not be created. However a public_path is
+set in the defualts as shown below:
+
+`$public_path = '/srv/ts-yt-dl/public';`
+
+#### To enable the public option create the public folder with the correct permissions.
+
+`mkdir /srv/ts-yt-dl/public`
+`chown -R www-data:www-data /srv/ts-yt-dl/public`
+

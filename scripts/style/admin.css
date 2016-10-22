@@ -107,13 +107,13 @@ button:hover, input[type=submit]:hover {
 .user {
 	display: inline;
 }
-.log_button {
+.log_button, .plog_button {
 	float: right;
 }
-.log_button:hover {
+.log_button:hover, .plog_button:hover {
 	cursor: pointer;
 }
-.user_log, .log {
+.user_log, .log, .plog {
 	background: white;
 	position: fixed;
 	margin: 10em auto;

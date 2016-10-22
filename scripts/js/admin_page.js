@@ -10,8 +10,12 @@ $(document).ready(function() {
 	$(".log_button").click(function() {
 		$(".log").show();
 	});
+	$(".plog_button").click(function() {
+		$(".plog").show();
+	});
 	$(".cancel_log").click(function() {
 		$(".log").hide();
+		$(".plog").hide();
 		$(".user_log").hide();
 	});
 	$(".user_log_link").click(function() {

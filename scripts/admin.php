@@ -10,13 +10,23 @@ echo "<script src=\"./js/admin_page.js\"></script>";
 echo "<link rel=\"stylesheet\" href=\"./style/admin.css\">";
 $log = file_get_contents($admin_log);
 $log = str_replace("\n", "<br />", $log);
+$plog = file_get_contents($public_path."/user.log");
+$plog = str_replace("\n", "<br />", $plog);
 echo "<div id=\"content\">
-		<button class=\"log_button\">Show log</button>
+		<button class=\"log_button\">Admin log</button>
 		<div class=\"log\">
 			<h1 class=\"box_header\">Admin Log</h1>
 			<h2 class=\"cancel_log\">X</h2>
 			<p>
 				$log
+			</p>
+		</div>
+		<button class=\"plog_button\">Public log</button>
+		<div class=\"plog\">
+			<h1 class=\"box_header\">Public Log</h1>
+			<h2 class=\"cancel_log\">X</h2>
+			<p>
+				$plog
 			</p>
 		</div>
 		<table id=\"admin_table\">

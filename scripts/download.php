@@ -71,13 +71,13 @@ if (!empty($url) && filter_var($url, FILTER_VALIDATE_URL)) {
 				file_put_contents("$public_path/videos/$timestamp/log", "Uploaded by = $userid\nTimestamp = $timestamp\nRemote IP = $ip\nDownload Type = $dtype\nVideo URL = $url\n");
 				exec("nohup youtube-dl --write-thumbnail --format mp4 -o \"$public_path/videos/$timestamp/$title.mp4\" $url >> \"$public_path/videos/$timestamp/log\" &");
 				$status = $status."\"".$title.".mp4\"";
-				file_put_contents("$public_path/user.log", "[$date]\tDownloaded video \"$url\" of title \"$title\".\n", FILE_APPEND);
+				file_put_contents("$public_path/user.log", "[$date]\tUserID $userid - $timestamp : Public video \"$url\" of title \"$title\".\n", FILE_APPEND);
 			} else {
 				// No info in $title.
 				file_put_contents("$public_path/videos/$timestamp/log", "Timestamp = $timestamp\nRemote IP = $ip\nDownload Type = $dtype\nVideo URL = $url\nError -- No title downloaded!!\n");
 				$status = "Error -- No title downloaded!!";
 				$thumbnail = './error.png';
-				file_put_contents("$public_path/user.log", "[$date]\tFailed downloading video for \"$url\".\n", FILE_APPEND);
+				file_put_contents("$public_path/user.log", "[$date]\tUserID $userid - $timestamp : Failed public video download for \"$url\".\n", FILE_APPEND);
 			}
 		} else {
 			$status = "Failed to create directory for video!";
@@ -95,7 +95,7 @@ if (!empty($url) && filter_var($url, FILTER_VALIDATE_URL)) {
 				file_put_contents("$public_path/audios/$timestamp/log", "Uploaded by = $userid\nTimestamp = $timestamp\nRemote IP = $ip\nDownload Type = $dtype\nVideo URL = $url\n");
 				exec("nohup youtube-dl --extract-audio --audio-format mp3 --write-thumbnail -o \"$public_path/audios/$timestamp/$title.mp4\" $url >> \"$public_path/audios/$timestamp/log\" &");
 				$status = $status."\"".$title.".mp3\"";
-				file_put_contents("$public_path/user.log", "[$date]\tDownloaded audio \"$url\" of title \"$title\".\n", FILE_APPEND);
+				file_put_contents("$public_path/user.log", "[$date]\tUserID $userid - $timestamp : Public audio \"$url\" of title \"$title\".\n", FILE_APPEND);
 			} else {
 				// No info in $title.
 				file_put_contents("$public_path/audios/$timestamp/log", "Timestamp = $timestamp\nRemote IP = $ip\nDownload Type = $dtype\nVideo URL = $url\nError -- No title downloaded!!\n");
@@ -105,7 +105,7 @@ if (!empty($url) && filter_var($url, FILTER_VALIDATE_URL)) {
 		} else {
 			$status = "Failed to create directory for audio!";
 			$thumbnail = './error.png';
-			file_put_contents("$public_path/user.log", "[$date]\tFailed downloading audio for \"$title\".\n", FILE_APPEND);
+			file_put_contents("$public_path/user.log", "[$date]\tUserID $userid - $timestamp : Failed public audio download for \"$title\".\n", FILE_APPEND);
 		}
 	} else {
 		$status = "Error -- Invalid dtype variable passed!";

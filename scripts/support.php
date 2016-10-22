@@ -47,6 +47,8 @@ echo '<table cellpadding="10">' ;
 $df = disk_total_space('/')/1000000;
 $df = number_format($df, 2, '.', ',');
 $load = sys_getloadavg();
+echo "<tr><td>User Name:</td><td>$name</td></tr>";
+echo "<tr><td>User ID:</td><td>$userid</td></tr>";
 echo "<tr><td>Available Disk Space:</td><td>$df Megabytes</td></tr>";
 echo "<tr><td>System Average Load:</td><td>$load[0], $load[1], $load[2]</td></tr>";
 foreach ($indicesServer as $arg) {

@@ -32,7 +32,7 @@ if (isset($_GET['ts_id'])) {
 		rmdir($media_path);
 		$date = date("Y-m-d H:i:s");
 		if ($_GET['public']) {
-			file_put_contents($public_path."/user.log", "[$date]\tDeleted file \"$media_path\".\n", FILE_APPEND);
+			file_put_contents($public_path."/user.log", "[$date]\tUserID $userid - Deleted file \"$media_path\".\n", FILE_APPEND);
 			header("Location: ./public_$media_type.php");
 		} else {
 			file_put_contents($data_path."/".$userid['userid']."/user.log", "[$date]\tDeleted file \"$media_path\".\n", FILE_APPEND);

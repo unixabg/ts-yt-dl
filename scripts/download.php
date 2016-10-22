@@ -68,7 +68,7 @@ if (!empty($url) && filter_var($url, FILTER_VALIDATE_URL)) {
 				// $title has at least one non-space character
 				// then start the download process.
 				$thumbnail = exec("youtube-dl --get-thumbnail $url");
-				file_put_contents("$public_path/videos/$timestamp/log", "Timestamp = $timestamp\nRemote IP = $ip\nDownload Type = $dtype\nVideo URL = $url\n");
+				file_put_contents("$public_path/videos/$timestamp/log", "Uploaded by = $userid\nTimestamp = $timestamp\nRemote IP = $ip\nDownload Type = $dtype\nVideo URL = $url\n");
 				exec("nohup youtube-dl --write-thumbnail --format mp4 -o \"$public_path/videos/$timestamp/$title.mp4\" $url >> \"$public_path/videos/$timestamp/log\" &");
 				$status = $status."\"".$title.".mp4\"";
 				file_put_contents("$public_path/user.log", "[$date]\tDownloaded video \"$url\" of title \"$title\".\n", FILE_APPEND);
@@ -92,7 +92,7 @@ if (!empty($url) && filter_var($url, FILTER_VALIDATE_URL)) {
 				// $title has at least one non-space character
 				// then start the download process.
 				$thumbnail = exec("youtube-dl --get-thumbnail $url");
-				file_put_contents("$public_path/audios/$timestamp/log", "Timestamp = $timestamp\nRemote IP = $ip\nDownload Type = $dtype\nVideo URL = $url\n");
+				file_put_contents("$public_path/audios/$timestamp/log", "Uploaded by = $userid\nTimestamp = $timestamp\nRemote IP = $ip\nDownload Type = $dtype\nVideo URL = $url\n");
 				exec("nohup youtube-dl --extract-audio --audio-format mp3 --write-thumbnail -o \"$public_path/audios/$timestamp/$title.mp4\" $url >> \"$public_path/audios/$timestamp/log\" &");
 				$status = $status."\"".$title.".mp3\"";
 				file_put_contents("$public_path/user.log", "[$date]\tDownloaded audio \"$url\" of title \"$title\".\n", FILE_APPEND);

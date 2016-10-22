@@ -12,11 +12,11 @@ if (!empty($url) && filter_var($url, FILTER_VALIDATE_URL)) {
 	$date = date("Y-m-d H:i:s");
 	if ($dtype == "video") {
 		//download video
-		if ( mkdir("$data_path/$userid/videos/$timestamp", 0755, true) ) {
+		if (mkdir("$data_path/$userid/videos/$timestamp", 0755, true)) {
 			$title = exec("youtube-dl --get-title $url");
 			$title = preg_replace("/[^a-zA-Z0-9:#!,. ]+/", "", $title);
 			// echo "$title";
-			if(strlen(trim($title)) > 0){
+			if (strlen(trim($title)) > 0) {
 				// $title has at least one non-space character
 				// then start the download process.
 				$thumbnail = exec("youtube-dl --get-thumbnail $url");
@@ -35,12 +35,12 @@ if (!empty($url) && filter_var($url, FILTER_VALIDATE_URL)) {
 			$status = "Failed to create directory for video!";
 			$thumbnail = './error.png';
 		}
-	} elseif ($dtype == "audio"){
+	} elseif ($dtype == "audio") {
 		//download audio only
-		if ( mkdir("$data_path/$userid/audios/$timestamp", 0755, true) ) {
+		if (mkdir("$data_path/$userid/audios/$timestamp", 0755, true)) {
 			$title = exec("youtube-dl --get-title $url");
 			$title = preg_replace("/[^a-zA-Z0-9:#!,. ]+/", "", $title);
-			if(strlen(trim($title)) > 0){
+			if (strlen(trim($title)) > 0) {
 				// $title has at least one non-space character
 				// then start the download process.
 				$thumbnail = exec("youtube-dl --get-thumbnail $url");
@@ -61,10 +61,10 @@ if (!empty($url) && filter_var($url, FILTER_VALIDATE_URL)) {
 		}
 	} elseif ($dtype == "public_video") {
 		// download public video
-		if ( mkdir("$public_path/videos/$timestamp", 0755, true) ) {
+		if (mkdir("$public_path/videos/$timestamp", 0755, true)) {
 			$title = exec("youtube-dl --get-title $url");
 			$title = preg_replace("/[^a-zA-Z0-9:#!,. ]+/", "", $title);
-			if(strlen(trim($title)) > 0){
+			if (strlen(trim($title)) > 0) {
 				// $title has at least one non-space character
 				// then start the download process.
 				$thumbnail = exec("youtube-dl --get-thumbnail $url");
@@ -83,12 +83,12 @@ if (!empty($url) && filter_var($url, FILTER_VALIDATE_URL)) {
 			$status = "Failed to create directory for video!";
 			$thumbnail = './error.png';
 		}
-	} elseif ($dtype == "public_audio"){
+	} elseif ($dtype == "public_audio") {
 		//download public audio only
-		if ( mkdir("$public_path/audios/$timestamp", 0755, true) ) {
+		if (mkdir("$public_path/audios/$timestamp", 0755, true)) {
 			$title = exec("youtube-dl --get-title $url");
 			$title = preg_replace("/[^a-zA-Z0-9:#!,. ]+/", "", $title);
-			if(strlen(trim($title)) > 0){
+			if (strlen(trim($title)) > 0) {
 				// $title has at least one non-space character
 				// then start the download process.
 				$thumbnail = exec("youtube-dl --get-thumbnail $url");

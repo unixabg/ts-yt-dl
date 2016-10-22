@@ -35,7 +35,11 @@ echo "<body>
 								echo "<td class=\"large_cell\"><a href=\"./play_media.php?timestamp=".$timestamp[$t]."&media=".$video[$v]."&page=videos&public=true\"><h4 class=\"media_title\">&#9658 ".$video[$v]."</h4></a></td>";
 							}
 							echo "<td class=\"medium_cell\">". number_format(filesize("$public_path/videos/".$timestamp[$t]."/".$video[$v]) / 1024, 2) ." KB</td>";
-						echo "</tr>";
+							// Display delete option for admin user on public videos
+							if ($_SESSION['authorized'] == 10) {
+								echo "<td class=\"small_cell\"><a onclick=\"return confirm('Are you sure you to delete this?')\" href=\"./delete.php?ts_id=".$timestamp[$t]."&media_type=videos&public=true\" class=\"saltire\" > Delete</a></td>";
+							}
+							echo "</tr>";
 					}
 				}
 			}

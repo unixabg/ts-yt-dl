@@ -128,7 +128,7 @@ button:hover, input[type=submit]:hover {
 	height: 355px;
 	box-shadow: 0px 2px 2px rgba(0, 0, 0, .9);
 }
-.log p {
+.log p, .plog p {
 	padding: 0.5em;
 	height: 275px;
 	overflow-y: auto;

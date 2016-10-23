@@ -4,7 +4,7 @@
 $data_path = '/srv/ts-yt-dl';
 $public_path = '/srv/ts-yt-dl/public';
 $admin_log = '/var/log/ts-yt-dl/admin.log';
-$tag_ver = '1.0.1';
+$tag_ver = '1.1.0';
 $from = 'NO-REPLY@localhost';
 #$authorize = "true";
 

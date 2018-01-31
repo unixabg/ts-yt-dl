@@ -11,6 +11,9 @@
 #### Install the packages we need.
 `apt-get install apache2 git mysql-server php5-mysqlnd youtube-dl`
 
+#### For Systems running php7.x
+`apt-get install apache2 git libapache2-mod-php mysql-server php-mysql youtube-dl`
+
 #############################################################################
 #### Move to the root home folder.
 `cd`

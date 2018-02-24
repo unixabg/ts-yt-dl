@@ -187,7 +187,8 @@ function serve($filename, $download){
 }
 
 //unset magic quotes; otherwise, file contents will be modified
-set_magic_quotes_runtime(0);
+// Commented this out as it is no longer a function in PHP 7.x
+//set_magic_quotes_runtime(0);
 
 //do not send cache limiter header
 ini_set('session.cache_limiter','none');

@@ -4,7 +4,7 @@ $timestamp = $_GET['timestamp'];
 $media = addslashes($_GET['media']);
 $page = $_GET['page'];
 $public = $_GET['public'];
-$filename="$page/$timestamp/$media"; //compose filename to pass to local_download.php
+$filename=mysqli_real_escape_string($db,"$page/$timestamp/$media"); //compose filename to pass to local_download.php
 
 echo "<div id=\"content\">";
 
@@ -24,7 +24,7 @@ if ($_GET['page'] == "videos") {
 					</audio>
 	<a class=\"download_link\" href=\"./local_download.php?filename=$filename&public=$public&dtype=true\">Download</a>";
 }
-echo "</div>
+echo $filename;"</div>
 </div>";
 include("footer.php");
 ?>

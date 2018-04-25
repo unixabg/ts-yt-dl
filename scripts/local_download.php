@@ -182,13 +182,14 @@ function serve($filename, $download){
 	// header("Content-Type: application/pdf");
 	header("Content-Type: application/octet-stream");
 	$filename_parts=pathinfo($filename);
-	if($download) header('Content-disposition: attachment; filename='.$filename_parts['basename']);
+	if($download) header('Content-disposition: attachment; filename="'.$filename_parts['basename'].'"');
 	readfile($filename);
 }
 
-//unset magic quotes; otherwise, file contents will be modified
-set_magic_quotes_runtime(0);
-
+//unset magic quotes on older versions of php; otherwise, file contents will be modified
+if(get_magic_quotes_runtime()){
+	ini_set('magic_quotes_runtime', 0);
+}
 //do not send cache limiter header
 ini_set('session.cache_limiter','none');
 
